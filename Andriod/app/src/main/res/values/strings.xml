@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">CarboTrack Phone Application</string>
-    <string name="signup_text">
-        <font color="#FFFFFF">Don't have an account?</font> <font color="#008000">Sign Up</font>
-    </string>
-</resources>

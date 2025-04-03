@@ -18,7 +18,7 @@
         android:text="Together, we can solve the global warming crisis if we just reduce our own carbon"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_above="@id/btn_login"
@@ -34,7 +34,7 @@
 
         <Button
             android:id="@+id/btn_login"
-            android:layout_width="299dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:text="LOG IN"
             android:backgroundTint="@color/green" />
