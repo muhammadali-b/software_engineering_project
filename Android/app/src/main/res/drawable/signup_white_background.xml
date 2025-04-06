@@ -1,0 +1,7 @@
+<!-- This will be the white background that will be used for the signup on the phone application -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners android:radius="20dp"/>
+    <solid android:color="@android:color/white"/>
+
+</shape>
