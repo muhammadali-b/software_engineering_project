@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="green">#4CAF50</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">CarboTrack Phone Application</string>
+    <string name="signup_text">
+        <font color="#FFFFFF">Don't have an account?</font> <font color="#008000">Sign Up</font>
+    </string>
+    <style name="Base.Theme.CarboTrackPhoneApplication" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.CarboTrackPhoneApplication" parent="Base.Theme.CarboTrackPhoneApplication"/>
+</resources>

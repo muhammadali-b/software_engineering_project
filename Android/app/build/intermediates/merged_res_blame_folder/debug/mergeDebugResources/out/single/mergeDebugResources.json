@@ -1,0 +1,110 @@
+[
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/layout_activity_travelcompleted.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/layout/activity_travelcompleted.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/layout_activity_chooseride.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/layout/activity_chooseride.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/drawable-v24_edit_text_background.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/drawable-v24/edit_text_background.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/drawable-v24_signup_bg.jpeg.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/drawable-v24/signup_bg.jpeg"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/xml_backup_rules.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/drawable-v24_rounded_background.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/drawable-v24/rounded_background.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/layout_activity_onboarding.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/layout/activity_onboarding.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/layout_activity_signup.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/layout/activity_signup.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/layout_activity_travelprocess.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/layout/activity_travelprocess.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-pngs-28:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/layout_activity_login.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/drawable-v24_onboarding_bg.jpg.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/drawable-v24/onboarding_bg.jpg"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/drawable-v24_login_bg.jpg.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/drawable-v24/login_bg.jpg"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-32:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-34:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    }
+]
