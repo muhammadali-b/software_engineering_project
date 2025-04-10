@@ -7,8 +7,8 @@
     --clr-danger:#ff7782;
     --clr-success:#41f1b6;
     --clr-info:#55667a;
-    --clr-warning:#ff4edc;
-    --clr-button: #3e4ff4;
+    --clr-warning:hsl(312, 100%, 65%);
+    --clr-button: #f6f6f6;
     --clr-primary-variant:#23693e;
     --clr-background:#f6f6f6;
     --clr-light:rgba(132, 139, 200, 0.18);
@@ -37,7 +37,6 @@ body{
     height: 100%;
     width: 200px;
     position: fixed;
-    /*z-index: 1;*/
     display: flex;
     flex-direction: column;
     position: relative;
@@ -66,6 +65,17 @@ aside .sidebar a:last-child{
 }
 .sidebar a:hover {
     color: #55667a;
+}
+
+.top{
+        width: 200px;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background-color: #f6f6f6;
+        overflow-x: hidden;
+        padding-top: 0px;
 }
 
 .btn{
@@ -100,9 +110,40 @@ aside .sidebar a:hover span{
     transition: all 0.1s ease-in;
 }
 
+.btn{
+    border-radius: var(--border-radius-2);
+    padding: 5px 10px 5px 10px;
+    font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+}
+
+main .btn:active::before {
+    width: 6px;
+    background-color: var(--clr-primary);
+    border-radius: var(--border-radius-2);
+}
+
+main .btn:hover{
+    color: var(--clr-seconday);
+    background-color: var(--clr-primary);
+    border-radius: var(--border-radius-2);
+}
+.search-input{
+    width: 30%;
+    border-radius: var(--border-radius-2);
+    padding: 5px 30px 5px 10px;
+    font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+}
+
 .search-bar{
     background-color:var(--clr-seconday);
-    padding: var(--padding-1);
+    padding: 5px 30px 30px 10px;
     border-radius: 15px;
 }
 
+.lbl {
+    padding: 30px 50px 10px 30px;
+}

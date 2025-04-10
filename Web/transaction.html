@@ -13,27 +13,93 @@
     <link rel="stylesheet" href="dashboard_styles.css" />
   </head>
   <body>
-    <div class="sidebar">
-      <a href="http://127.0.0.1:5500/Web/dashboard.html"
-        ><span class="material-symbols-sharp">Analytics</span>
-        <h3>Dashboard</h3>
-      </a>
-      <a href="http://127.0.0.1:5500/Web/account.html"
-        ><span class="material-symbols-sharp">Person</span>
-        <h3>Account</h3>
-      </a>
-      <a href="http://127.0.0.1:5500/Web/transaction.html"
-        ><span class="material-symbols-sharp">Toll</span>
-        <h3>Transaction</h3>
-      </a>
-      <a href="http://127.0.0.1:5500/Web/user_manage.html"
-        ><span class="material-symbols-sharp">Supervised_User_Circle</span>
-        <h3>User Management</h3>
-      </a>
-      <a href="http://127.0.0.1:5500/Web/index.html"
-        ><span class="material-symbols-sharp">Logout</span>
-        <h3>Logout</h3>
-      </a>
-    </div>
+    <div class="container">
+      <!--Sidebar Start-->
+      <aside>
+        <div class="top">
+          <div class="logo">
+            <h2>
+              <span class="ctlogo">CarboTrack</span>
+            </h2>
+          </div>
+          <div class="close">
+            <span class="material-symbols-sharp" class="logo-img">
+              thermostat_carbon
+            </span>
+          </div>
+        </div>
+        <!--Top End-->
+
+        <div class="sidebar">
+          <a href="http://127.0.0.1:5500/Web/dashboard.html#"
+            ><span class="material-symbols-sharp">Analytics</span>
+            <h3>Dashboard</h3>
+          </a>
+          <a href="http://127.0.0.1:5500/Web/account.html"
+            ><span class="material-symbols-sharp">Person</span>
+            <h3>Account</h3>
+          </a>
+          <a href="http://127.0.0.1:5500/Web/transaction.html"
+            ><span class="material-symbols-sharp">Toll</span>
+            <h3>Transaction</h3>
+          </a>
+          <a href="http://127.0.0.1:5500/Web/user_manage.html"
+            ><span class="material-symbols-sharp">Supervised_User_Circle</span>
+            <h3>User Management</h3>
+          </a>
+          <a href="http://127.0.0.1:5500/Web/index.html"
+            ><span class="material-symbols-sharp">Logout</span>
+            <h3>Logout</h3>
+          </a>
+        </div>
+      </aside>
+      <!--Sidebar End-->
+
+      <!--Main Table-->
+      <main>
+        <h1>Carbon Credit Transactions</h1>
+        <div class="main-container">
+          <div class="search-bar">
+            <h4>ID Transaction</h4>
+            <input type="text" placeholder="Search..." class="search-input" />
+            <button class="btn" id="myinput">Search</button>
+          </div>
+          <div class="user-tbl">
+            <table id="myTable">
+              <th>ID Transaction</th>
+              <th>Seller</th>
+              <th>Buyer</th>
+              <th>Quantity Traded</th>
+              <th>Price Traded</th>
+              <th>Status</th>
+              <tr>
+                <td>123451</td>
+                <td>abcxyz@gmail.com</td>
+                <td>xyzabc@gmail.com</td>
+                <td>400</td>
+                <td>$4</td>
+                <td>In Process</td>
+              </tr>
+              <tr>
+                <td>123452</td>
+                <td>HarrisonJames@gmail.com</td>
+                <td>xyzabc@gmail.com</td>
+                <td>300</td>
+                <td>$3</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>123453</td>
+                <td>NRobbins@gmail.com</td>
+                <td>xyzabc@gmail.com</td>
+                <td>500</td>
+                <td>$5</td>
+                <td>In Progress</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </main>
   </body>
+  <script src="scripts.js"></script>
 </html>

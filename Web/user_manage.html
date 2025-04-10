@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>User Management</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,27 +13,103 @@
     <link rel="stylesheet" href="dashboard_styles.css" />
   </head>
   <body>
-    <div class="sidebar">
-      <a href="http://127.0.0.1:5500/Web/dashboard.html#"
-        ><span class="material-symbols-sharp">Analytics</span>
-        <h3>Dashboard</h3>
-      </a>
-      <a href="http://127.0.0.1:5500/Web/account.html"
-        ><span class="material-symbols-sharp">Person</span>
-        <h3>Account</h3>
-      </a>
-      <a href="http://127.0.0.1:5500/Web/transaction.html"
-        ><span class="material-symbols-sharp">Toll</span>
-        <h3>Transaction</h3>
-      </a>
-      <a href="http://127.0.0.1:5500/Web/user_manage.html"
-        ><span class="material-symbols-sharp">Supervised_User_Circle</span>
-        <h3>User Management</h3>
-      </a>
-      <a href="http://127.0.0.1:5500/Web/index.html"
-        ><span class="material-symbols-sharp">Logout</span>
-        <h3>Logout</h3>
-      </a>
+    <div class="container">
+      <!--Sidebar Start-->
+      <aside>
+        <div class="top">
+          <div class="logo">
+            <h2>
+              <span class="ctlogo">CarboTrack</span>
+            </h2>
+          </div>
+          <div class="close">
+            <span class="material-symbols-sharp" class="logo-img">
+              thermostat_carbon
+            </span>
+          </div>
+        </div>
+        <!--Top End-->
+
+        <div class="sidebar">
+          <a href="http://127.0.0.1:5500/Web/dashboard.html#"
+            ><span class="material-symbols-sharp">Analytics</span>
+            <h3>Dashboard</h3>
+          </a>
+          <a href="http://127.0.0.1:5500/Web/account.html"
+            ><span class="material-symbols-sharp">Person</span>
+            <h3>Account</h3>
+          </a>
+          <a href="http://127.0.0.1:5500/Web/transaction.html"
+            ><span class="material-symbols-sharp">Toll</span>
+            <h3>Transaction</h3>
+          </a>
+          <a href="http://127.0.0.1:5500/Web/user_manage.html"
+            ><span class="material-symbols-sharp">Supervised_User_Circle</span>
+            <h3>User Management</h3>
+          </a>
+          <a href="http://127.0.0.1:5500/Web/index.html"
+            ><span class="material-symbols-sharp">Logout</span>
+            <h3>Logout</h3>
+          </a>
+        </div>
+      </aside>
+      <!--Sidebar End-->
+
+      <!--Main Start-->
+      <main>
+        <h1>User Management</h1>
+        <div class="main-container">
+          <div class="search-bar">
+            <h4>Name/Email</h4>
+            <input type="text" placeholder="Search..." class="search-input" />
+            <button class="btn" id="myinput">Search</button>
+          </div>
+          <div class="user-tbl">
+            <table id="myTable">
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Activity</th>
+              <th>Status</th>
+              <th>Actions</th>
+              <tr>
+                <td>Sarah</td>
+                <td>Martin</td>
+                <td>MartinS@gmail.com</td>
+                <td>Employee</td>
+                <td></td>
+                <td>Active</td>
+                <td>...</td>
+              </tr>
+              <tr>
+                <td>Robert</td>
+                <td>Smith</td>
+                <td>RobbiSmith@gmail.com</td>
+                <td>Employeer</td>
+                <td></td>
+                <td>Active</td>
+                <td>...</td>
+              </tr>
+              <tr>
+                <td>Naomi</td>
+                <td>Sharon</td>
+                <td>NaySharon@gmail.com</td>
+                <td>Employee</td>
+                <td></td>
+                <td>Active</td>
+                <td>...</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </main>
+      <!--Main End-->
+
+      <!--Right Start-->
+      <div class="right"></div>
+      <!--Right End-->
     </div>
+    <script src="scripts.js"></script>
   </body>
 </html>
