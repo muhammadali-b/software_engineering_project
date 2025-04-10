@@ -28,6 +28,9 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".EmployeedailyActivity"
+            android:exported="false" />
+        <activity
             android:name=".OnboardingActivity"
             android:exported="true">
             <intent-filter>

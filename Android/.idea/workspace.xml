@@ -4,14 +4,34 @@
     <shared>
       <config>
         <device id="_device_class_phone" />
+        <device id="pixel_9" />
         <device id="_device_class_desktop" />
         <device id="pixel_8_pro" />
         <device id="_device_class_tablet" />
-        <device id="pixel_9" />
       </config>
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/circle_background.xml">
+        <config>
+          <theme>@style/Theme.CarboTrackPhoneApplication</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ellipse_background.xml">
+        <config>
+          <theme>@style/Theme.CarboTrackPhoneApplication</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chooseride.xml">
+        <config>
+          <theme>@style/Theme.CarboTrackPhoneApplication</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_employee_daily.xml">
+        <config>
+          <theme>@style/Theme.CarboTrackPhoneApplication</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_employee_monthly.xml">
         <config>
           <theme>@style/Theme.CarboTrackPhoneApplication</theme>
         </config>
@@ -41,6 +61,11 @@
           <theme>@style/Theme.CarboTrackPhoneApplication</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml">
+        <config>
+          <theme>@style/Theme.CarboTrackPhoneApplication</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
@@ -48,10 +73,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75aa48d8-ccda-4345-8721-8861e609e674" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.11.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +94,13 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -481,12 +516,12 @@
       <map>
         <entry key="com.example.carbotrackphoneapplication">
           <value>
-            <CheckInfo lastCheckTimestamp="1744160733969" />
+            <CheckInfo lastCheckTimestamp="1744247431730" />
           </value>
         </entry>
         <entry key="com.example.carbotrackphoneapplication.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1744160733969" />
+            <CheckInfo lastCheckTimestamp="1744247431730" />
           </value>
         </entry>
       </map>
