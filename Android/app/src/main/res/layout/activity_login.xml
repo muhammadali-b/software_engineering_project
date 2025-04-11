@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--This will be the login page of the application. -->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--Here we are setting up the background image for the page-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/login_bg"/>
+
+    <!-- Here is the creation of the white box that will have the information for users to enter-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rounded_background"
+        android:padding="40dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log In"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Here is where the email input will be-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edit_text_background">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_dialog_email"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/green"
+                android:layout_marginRight="10dp"/>
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:background="@android:color/transparent"
+                android:padding="0dp"
+                android:textColor="@android:color/black"/>
+
+        </LinearLayout>
+
+        <!-- Here is where the password input will be-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:padding="10dp"
+            android:background="@drawable/rounded_background">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_lock_lock"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/green"
+                android:layout_marginRight="10dp"/>
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:background="@android:color/transparent"
+                android:padding="0dp"
+                android:textColor="@android:color/black"/>
+
+            <ImageView
+                android:id="@+id/imgTogglePassword"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_eye_closed"
+                android:contentDescription="Toggle password visibility"
+                android:layout_marginStart="10dp"
+                android:clickable="true"
+                android:focusable="true"/>
+
+
+        </LinearLayout>
+
+        <!--Here is where we are setting up forget password for users to reset their password if needed-->
+        <TextView
+            android:id="@+id/txt_forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:textColor="@color/green"
+            android:gravity="end"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="end"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <!-- Here is the login button-->
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="327dp"
+            android:layout_height="60dp"
+            android:text="LOG IN"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/green"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Here is where we are prompting users to sign up-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Don't have an account?"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:id="@id/txt_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Sign up"
+                android:textColor="@color/green"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
