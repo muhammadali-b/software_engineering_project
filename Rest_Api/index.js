@@ -11,5 +11,6 @@ app.use(bodyParser.json());
 app.use('/api', authRoutes);
 app.use('/api', employeeRoutes);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 5555;
+
 app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
