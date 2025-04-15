@@ -23,3 +23,4 @@ router.patch('/approve-employer/:id', (req, res) => {
     });
   });
   
+  module.exports = router;
