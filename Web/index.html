@@ -17,7 +17,30 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
+            <div class="input-group">
+              <label for="role">Role</label>
+        <select
+          name="role"
+          id="role"
+          selected="selected"
+          required
+        >
+        <option
+          value="Admin">Admin</option>
+          <option
+          value="Employer">Employer</option>
+          <option
+          value="Banker">Banker</option>
+          Select Role
+        </select>
+            </div>
+            <div class="login-links">
+              
+            </div>
             <button type="submit" class="login-btn" id="mybtn">Login</button>
+            <div class="container-register">
+        <p>Create an account <a href="registration.html">Sign Up</a>.</p>
+      </div>
         </form>
         <p id="error-message"></p>
     </div>

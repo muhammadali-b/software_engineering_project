@@ -1,3 +1,19 @@
+const web_api = "https://softwareengineeringproject-production.up.railway.app/api/register";
+
+fetch(web_api)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
 document.getElementById("mybtn").addEventListener("click", function(e) {
     e.preventDefault();
 
@@ -18,3 +34,4 @@ document.getElementById("mybtn").addEventListener("click", function(e) {
     }
 });
 
+fetch('https://regres.in/api/users');
