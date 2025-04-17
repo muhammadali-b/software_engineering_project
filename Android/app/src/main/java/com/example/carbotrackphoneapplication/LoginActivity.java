@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.view.View;
 import android.text.Html;
 import android.widget.Toast;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,34 +35,34 @@ public class LoginActivity extends AppCompatActivity {
         // Here is where we are adding a click event for when users will have to create an account
         TextView txtSignup = findViewById(R.id.txt_signup);
         txtSignup.setOnClickListener(view -> {
-            Intent intent = new Intent(LoginActivity.this, OnboardingActivity.class);
-            startActivity(intent);
+            Intent onboardingIntent = new Intent(LoginActivity.this, SignupActivity.class);
+            startActivity(onboardingIntent);
         });
 
         // Here is logic that will sign in the user to the appropriate home page on the app.
-        Button btnLogin = findViewById(R.id.btn_login);
-        btnLogin.setOnClickListener(view -> {
-            // Add logic to validate the password of the user.
+//        Button btnLogin = findViewById(R.id.btn_login);
+//        btnLogin.setOnClickListener(view -> {
+//            // Need to add logic to validate the password of the user.
+//
+//            if(userRole.equalsIgnoreCase("Employer"))
+//            {
+//                Intent employer_intent = new Intent(LoginActivity.this, );
+//                startActivity(employer_intent);
+//            }
+//            else
+//            {
+//                Intent employee_intent = new Intent(LoginActivity.this, Employeedaily_Activity.class);
+//                startActivity(employee_intent);
+//            }
+//            finish();
+//        });
 
-            if(userRole.equalsIgnoreCase("Employer"))
-            {
-                Intent employer_intent = new Intent(LoginActivity.this, );
-                startActivity(employer_intent);
-            }
-            else
-            {
-                Intent employee_intent = new Intent(LoginActivity.this, );
-                startActivity(employee_intent);
-            }
-            finish();
-        });
-
-        // Here is where users will get directed to the forgot password page if users forget their password to login.
-        TextView txtForgotPassword = findViewById(R.id.txt_forgot_password);
-        txtForgotPassword.setOnClickListener(view -> {
-            Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
-            startActivity(intent);
-        });
+//        // Here is where users will get directed to the forgot password page if users forget their password to login.
+//        TextView txtForgotPassword = findViewById(R.id.txt_forgot_password);
+//        txtForgotPassword.setOnClickListener(view -> {
+//            Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+//            startActivity(intent);
+//        });
 
         // Here is where we are going to add the functionality of having users see the password that they are typing using the eye icon.
         EditText etPassword = findViewById(R.id.etPassword);

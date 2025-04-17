@@ -1,15 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="green">#4CAF50</color>
+    <color name="darkGray">#404040</color>
+    <color name="green">#3AAD67</color>
+    <color name="lightGray">#BABABA</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="app_name">CarboTrack Phone Application</string>
-    <string name="signup_text">
-        <font color="#FFFFFF">Don't have an account?</font> <font color="#008000">Sign Up</font>
-    </string>
+    <item name="btnBike" type="id"/>
+    <item name="btnCar" type="id"/>
+    <item name="btnDone" type="id"/>
+    <item name="btnEndTrip" type="id"/>
+    <item name="btnPublicTransport" type="id"/>
+    <item name="btnRideShare" type="id"/>
+    <item name="btnStartTrip" type="id"/>
     <style name="Base.Theme.CarboTrackPhoneApplication" parent="Theme.Material3.DayNight.NoActionBar">
         
         
+    </style>
+    <style name="InputField">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@drawable/edit_text_background</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="InputIcon">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:tint">@color/green</item>
+        <item name="android:layout_marginEnd">10dp</item>
+    </style>
+    <style name="InputText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="InputToggle">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
     </style>
     <style name="Theme.CarboTrackPhoneApplication" parent="Base.Theme.CarboTrackPhoneApplication"/>
 </resources>

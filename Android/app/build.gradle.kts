@@ -40,6 +40,13 @@ dependencies {
     // Here we are adding the MPAndroidChart package from Philipp Jahoda
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
+    //This is for the OSMDroid dependency that will provide the phone application with a map allowing the user to know their traveling and current location.
+    implementation("org.osmdroid:osmdroid-android:6.1.11")
+
+    // This allows users to have the option od enabling location services on their mobile devices
+    implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation("com.google.android.libraries.places:places:3.2.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

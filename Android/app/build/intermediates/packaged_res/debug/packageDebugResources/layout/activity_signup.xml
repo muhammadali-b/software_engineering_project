@@ -1,10 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<!-- This is the code for the sign up page of the phone application -->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupActivity">
+    android:background="@color/black">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Background image -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="512dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/signup_bg" />
+
+    <!-- White signup form container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="510dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="218dp"
+        android:background="@drawable/signup_white_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- "Sign Up" Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:text="Sign up"
+            android:textColor="@color/green"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Role Selection Dropdown (now hardcoded) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Role"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+            <AutoCompleteTextView
+                android:id="@+id/auto_complete_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Name -->
+        <LinearLayout style="@style/InputField" android:layout_marginBottom="10dp">
+            <ImageView style="@style/InputIcon" android:src="@drawable/baseline_account_circle_24" />
+            <EditText android:id="@+id/etName" style="@style/InputText" android:hint="Name" />
+        </LinearLayout>
+
+        <!-- Email -->
+        <LinearLayout style="@style/InputField" android:layout_marginBottom="10dp">
+            <ImageView style="@style/InputIcon" android:src="@android:drawable/ic_dialog_email" />
+            <EditText
+                android:id="@+id/etEmail"
+                style="@style/InputText"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+        </LinearLayout>
+
+        <!-- Password -->
+        <LinearLayout style="@style/InputField" android:layout_marginBottom="10dp">
+            <ImageView style="@style/InputIcon" android:src="@android:drawable/ic_lock_lock" />
+            <EditText
+                android:id="@+id/etPassword"
+                style="@style/InputText"
+                android:hint="Password"
+                android:inputType="textPassword" />
+            <ImageView
+                android:id="@+id/imgTogglePassword"
+                style="@style/InputToggle"
+                android:src="@drawable/ic_eye_closed" />
+        </LinearLayout>
+
+        <!-- Confirm Password -->
+        <LinearLayout style="@style/InputField" android:layout_marginBottom="15dp">
+            <ImageView style="@style/InputIcon" android:src="@android:drawable/ic_lock_lock" />
+            <EditText
+                android:id="@+id/etConfirmPassword"
+                style="@style/InputText"
+                android:hint="Confirm Password"
+                android:inputType="textPassword" />
+            <ImageView
+                android:id="@+id/imgToggleConfirmPassword"
+                style="@style/InputToggle"
+                android:src="@drawable/ic_eye_closed" />
+        </LinearLayout>
+
+        <!-- Sign Up Button -->
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="327dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="15dp"
+            android:backgroundTint="@color/green"
+            android:gravity="center"
+            android:text="SIGN UP"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+
+        <!-- Already have an account? -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I already have an account!"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Log in"
+                android:textColor="@color/green"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

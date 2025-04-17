@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--These will be needed for OSMDroid to provide permissions needed for the dependency-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,22 +18,31 @@
         android:theme="@style/Theme.CarboTrackPhoneApplication"
         tools:targetApi="31">
         <activity
-            android:name=".TravelcompletedActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TravelprocessActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ChooserideActivity"
-            android:exported="false" />
-        <activity
             android:name=".SignupActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".EmployeedailyActivity"
+            android:name=".Employeedaily_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".InitialTravelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PlanYourRideActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChooseRideActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TravelSummaryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TravelProcessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TravelCompletedActivity"
             android:exported="false" />
         <activity
             android:name=".OnboardingActivity"

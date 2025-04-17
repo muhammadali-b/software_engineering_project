@@ -1,44 +1,43 @@
 package com.example.carbotrackphoneapplication;
 
-import android.os.Bundle;
 import android.content.Intent;
-import android.text.InputType;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Button;
-import android.view.View;
-import android.text.Html;
-import android.widget.Toast;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.core.view.WindowInsetsCompat.Insets;
+
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class SignupActivity extends AppCompatActivity {
 
     String[] roles = {"Employer", "Employee"};
-    String selectedRole="";
+    String selectedRole = "";
 
     AutoCompleteTextView autoCompleteTextView;
+    EditText etName, etEmail, etPassword, etConfirmPassword;
+    Button signUpButton;
+
+    String apiUrl = "https://softwareengineeringproject-production.up.railway.app/api/register";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_signup);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
-        // Here is where we are creating the dropdown menu for users to choose whether they are an Employee or an Employer.
         autoCompleteTextView = findViewById(R.id.auto_complete_txt);
-        Button signUpButton = findViewById(R.id.btnSignUp);
+        etName = findViewById(R.id.etName);
+        etEmail = findViewById(R.id.etEmail);
+        etPassword = findViewById(R.id.etPassword);
+        etConfirmPassword = findViewById(R.id.etConfirmPassword);
+        signUpButton = findViewById(R.id.btnSignUp);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, roles);
         autoCompleteTextView.setAdapter(adapter);
@@ -48,42 +47,81 @@ public class SignupActivity extends AppCompatActivity {
             Toast.makeText(SignupActivity.this, "Selected Role: " + selectedRole, Toast.LENGTH_SHORT).show();
         });
 
+        signUpButton.setOnClickListener(v -> {
+            String name = etName.getText().toString().trim();
+            String email = etEmail.getText().toString().trim();
+            String password = etPassword.getText().toString();
+            String confirmPassword = etConfirmPassword.getText().toString();
 
-        signUpButton.setOnClickListener(view -> {
-            //Here we are checking to see if the user has selected a user role.
-            if (selectedRole.isEmpty())
-            {
-                Toast.makeText(SignupActivity.this, "Please select a role.", Toast.LENGTH_SHORT).show();
+            if (selectedRole.isEmpty() || name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(SignupActivity.this, "Please fill all fields and select a role.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // Here is where the logic for if an Employer registers on the platform, then a Carbon Credit Bank will have to approve that registration.
-            // If an Employee registers on the platform then the Employer will have to go and approve the registration of the Employee.
-            if(selectedRole.equals("Employer"))
-            {
-                Toast.makeText(SignupActivity.this, "Signed up as an Employer. Now awaiting Carbon Credit Bank approval.", Toast.LENGTH_LONG).show();
-                //Once approved then do the lines below
-                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-            else if (selectedRole.equals("Employee"))
-            {
-                Toast.makeText(SignupActivity.this, "Signed up as an Employee. Now awaiting Employer approval.", Toast.LENGTH_LONG).show();
-                //Once approved then do the lines below
-                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
+            if (!password.equals(confirmPassword)) {
+                Toast.makeText(SignupActivity.this, "Passwords do not match.", Toast.LENGTH_SHORT).show();
+                return;
             }
 
+            registerUser(name, email, password, selectedRole);
         });
 
-        // Here is where users will get directed straight to the login page if they have an account already on the app.
-        TextView txt_Login = findViewById(R.id.txtLogin);
-        txt_Login.setOnClickListener(view -> {
+        TextView txtLogin = findViewById(R.id.txtLogin);
+        txtLogin.setOnClickListener(view -> {
             Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
             startActivity(intent);
         });
+    }
 
+    private void registerUser(String name, String email, String password, String role) {
+        new Thread(() -> {
+            try {
+                URL url = new URL(apiUrl);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+                conn.setDoOutput(true);
+
+                // Assuming single name input — split first/last if needed
+                JSONObject jsonParam = new JSONObject();
+                jsonParam.put("f_name", name);         // using entire name as first name
+                jsonParam.put("l_name", "");            // empty last name
+                jsonParam.put("email", email);
+                jsonParam.put("password", password);
+                jsonParam.put("role", role.toLowerCase());
+
+                OutputStream os = conn.getOutputStream();
+                os.write(jsonParam.toString().getBytes("UTF-8"));
+                os.close();
+
+                int code = conn.getResponseCode();
+                InputStream is = (code >= 200 && code < 300) ? conn.getInputStream() : conn.getErrorStream();
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+                reader.close();
+
+                runOnUiThread(() -> {
+                    if (code == 200 || code == 201) {
+                        Toast.makeText(SignupActivity.this, "Registered as " + role + ". Awaiting approval.", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(SignupActivity.this, "Error: " + response.toString(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+                conn.disconnect();
+
+            } catch (Exception e) {
+                Log.e("SignupError", "Error: ", e);
+                runOnUiThread(() -> Toast.makeText(SignupActivity.this, "Exception: " + e.getMessage(), Toast.LENGTH_LONG).show());
+            }
+        }).start();
     }
 }

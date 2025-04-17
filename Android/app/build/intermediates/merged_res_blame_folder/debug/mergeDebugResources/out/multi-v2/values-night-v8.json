@@ -1,8 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.carbotrackphoneapplication.app-mergeDebugResources-30:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.example.carbotrackphoneapplication.app-mergeDebugResources-35:/values-night-v8/values-night-v8.xml",
             "map": [
+                {
+                    "source": "D:\\CarboTrack\\Android\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "102",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "338"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "184"
+                    }
+                },
                 {
                     "source": "C:\\Users\\Xenob\\.gradle\\caches\\8.11.1\\transforms\\153456d2ebfa041dc506c88d39b96927\\transformed\\material-1.12.0\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
@@ -35,25 +54,6 @@
                         "startOffsets": "189,259,343,427,523,625,727,3709",
                         "endColumns": "69,83,83,95,101,101,93,88",
                         "endOffsets": "254,338,422,518,620,722,816,3793"
-                    }
-                },
-                {
-                    "source": "D:\\CarboTrack\\Andriod\\app\\src\\main\\res\\values-night\\themes.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "100",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "333"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "184"
                     }
                 }
             ]

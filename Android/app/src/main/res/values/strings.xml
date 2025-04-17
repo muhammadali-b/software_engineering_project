@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">CarboTrack Phone Application</string>
-    <string name="signup_text">
-        <font color="#FFFFFF">Don't have an account?</font> <font color="#008000">Sign Up</font>
-    </string>
-
-    <!-- Here is where we are creating a name that will be on the dropdown menu for users to select their role on the application-->
-    <string name="select">Role</string>
-</resources>
