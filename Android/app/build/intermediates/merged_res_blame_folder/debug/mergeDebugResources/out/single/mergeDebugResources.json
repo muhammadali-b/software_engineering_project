@@ -4,10 +4,6 @@
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\layout\\activity_onboarding.xml"
     },
     {
-        "merged": "com.example.carbotrackphoneapplication.app-debug-37:/layout_activity_employee_daily.xml.flat",
-        "source": "com.example.carbotrackphoneapplication.app-main-39:/layout/activity_employee_daily.xml"
-    },
-    {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\mipmap-mdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\mipmap-mdpi\\ic_launcher.webp"
     },
@@ -44,24 +40,24 @@
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-37:/layout_activity_signup.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-39:/layout/activity_signup.xml"
+    },
+    {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\mipmap-xxhdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\drawable-v24_login_bg.jpg.flat",
-        "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\drawable-v24\\login_bg.jpg"
-    },
-    {
-        "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\drawable_signup_white_background.xml.flat",
-        "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\drawable\\signup_white_background.xml"
     },
     {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\drawable_travel_explore_24.xml.flat",
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\drawable\\travel_explore_24.xml"
     },
     {
-        "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\drawable_ellipse_color.xml.flat",
-        "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\drawable\\ellipse_color.xml"
+        "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\drawable_signup_white_background.xml.flat",
+        "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\drawable\\signup_white_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\drawable-v24_login_bg.jpg.flat",
+        "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\drawable-v24\\login_bg.jpg"
     },
     {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\layout_list_item.xml.flat",
@@ -70,6 +66,10 @@
     {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-pngs-33:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\drawable_ellipse_color.xml.flat",
+        "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\drawable\\ellipse_color.xml"
     },
     {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\drawable-v24_edit_text_bg.xml.flat",
@@ -124,12 +124,16 @@
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\xml\\data_extraction_rules.xml"
+    },
+    {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\layout_activity_choose_ride.xml.flat",
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\layout\\activity_choose_ride.xml"
     },
     {
-        "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\xml\\data_extraction_rules.xml"
+        "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\drawable-v24_rounded_background.xml.flat",
+        "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\drawable-v24\\rounded_background.xml"
     },
     {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\drawable_ic_eye_closed.xml.flat",
@@ -138,10 +142,6 @@
     {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\layout_item_prediction.xml.flat",
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\layout\\item_prediction.xml"
-    },
-    {
-        "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\drawable-v24_rounded_background.xml.flat",
-        "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-39:\\drawable-v24\\rounded_background.xml"
     },
     {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-37:\\drawable-v24_onboarding_bg.jpg.flat",

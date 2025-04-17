@@ -22,7 +22,7 @@ public class SignupActivity extends AppCompatActivity {
     String selectedRole = "";
 
     AutoCompleteTextView autoCompleteTextView;
-    EditText etName, etEmail, etPassword, etConfirmPassword;
+    EditText etfirstName, etlastName, etEmail, etPassword, etConfirmPassword;
     Button signUpButton;
 
     String apiUrl = "https://softwareengineeringproject-production.up.railway.app/api/register";
@@ -33,7 +33,9 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         autoCompleteTextView = findViewById(R.id.auto_complete_txt);
-        etName = findViewById(R.id.etName);
+        etfirstName = findViewById(R.id.etfirstName);
+        etlastName = findViewById(R.id.etlastName);
+
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         etConfirmPassword = findViewById(R.id.etConfirmPassword);
@@ -48,12 +50,13 @@ public class SignupActivity extends AppCompatActivity {
         });
 
         signUpButton.setOnClickListener(v -> {
-            String name = etName.getText().toString().trim();
+            String first_name = etfirstName.getText().toString().trim();
+            String last_name = etlastName.getText().toString().trim();
             String email = etEmail.getText().toString().trim();
             String password = etPassword.getText().toString();
             String confirmPassword = etConfirmPassword.getText().toString();
 
-            if (selectedRole.isEmpty() || name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+            if (selectedRole.isEmpty() || first_name.isEmpty() || last_name.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(SignupActivity.this, "Please fill all fields and select a role.", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -63,7 +66,7 @@ public class SignupActivity extends AppCompatActivity {
                 return;
             }
 
-            registerUser(name, email, password, selectedRole);
+            registerUser(first_name, last_name, email, password, selectedRole);
         });
 
         TextView txtLogin = findViewById(R.id.txtLogin);
@@ -73,7 +76,7 @@ public class SignupActivity extends AppCompatActivity {
         });
     }
 
-    private void registerUser(String name, String email, String password, String role) {
+    private void registerUser(String first_name, String last_name, String email, String password, String role) {
         new Thread(() -> {
             try {
                 URL url = new URL(apiUrl);
@@ -84,8 +87,8 @@ public class SignupActivity extends AppCompatActivity {
 
                 // Assuming single name input — split first/last if needed
                 JSONObject jsonParam = new JSONObject();
-                jsonParam.put("f_name", name);         // using entire name as first name
-                jsonParam.put("l_name", "");            // empty last name
+                jsonParam.put("f_name", first_name);         // using entire name as first name
+                jsonParam.put("l_name", last_name);            // empty last name
                 jsonParam.put("email", email);
                 jsonParam.put("password", password);
                 jsonParam.put("role", role.toLowerCase());
