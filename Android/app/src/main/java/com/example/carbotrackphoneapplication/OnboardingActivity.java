@@ -27,7 +27,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
         // Here is the functionality for users to click on the sign up button if they don't have an account.
         TextView txtSignup = findViewById(R.id.txt_signup);
-        txtSignup.setText(Html.fromHtml(getString(R.string.signup_text)));
+        txtSignup.setText(Html.fromHtml("Don't have an account? <b><font color='#3AAD67'>Sign Up</font></b>"));
 
         txtSignup.setOnClickListener(view -> {
             Intent intent = new Intent(OnboardingActivity.this, SignupActivity.class);

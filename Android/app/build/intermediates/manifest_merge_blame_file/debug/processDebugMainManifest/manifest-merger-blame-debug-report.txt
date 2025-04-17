@@ -8,153 +8,300 @@
 8        android:minSdkVersion="21"
 9        android:targetSdkVersion="35" />
 10
-11    <permission
-11-->[androidx.core:core:1.13.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\c347674ce0e4b6093b74c6d81b86c9d3\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
-12        android:name="com.example.carbotrackphoneapplication.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-12-->[androidx.core:core:1.13.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\c347674ce0e4b6093b74c6d81b86c9d3\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
-13        android:protectionLevel="signature" />
-13-->[androidx.core:core:1.13.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\c347674ce0e4b6093b74c6d81b86c9d3\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
-14
-15    <uses-permission android:name="com.example.carbotrackphoneapplication.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-15-->[androidx.core:core:1.13.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\c347674ce0e4b6093b74c6d81b86c9d3\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
-15-->[androidx.core:core:1.13.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\c347674ce0e4b6093b74c6d81b86c9d3\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
-16
-17    <application
-17-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:5:5-39:19
-18        android:allowBackup="true"
-18-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:6:9-35
-19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-19-->[androidx.core:core:1.13.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\c347674ce0e4b6093b74c6d81b86c9d3\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
-20        android:dataExtractionRules="@xml/data_extraction_rules"
-20-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:7:9-65
-21        android:debuggable="true"
-22        android:extractNativeLibs="true"
-23        android:fullBackupContent="@xml/backup_rules"
-23-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:8:9-54
-24        android:icon="@mipmap/ic_launcher"
-24-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:9:9-43
-25        android:label="@string/app_name"
-25-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:10:9-41
-26        android:roundIcon="@mipmap/ic_launcher_round"
-26-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:11:9-54
-27        android:supportsRtl="true"
-27-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:12:9-35
-28        android:testOnly="true"
-29        android:theme="@style/Theme.CarboTrackPhoneApplication" >
-29-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:13:9-64
-30        <activity
-30-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:15:9-17:40
-31            android:name="com.example.carbotrackphoneapplication.TravelcompletedActivity"
-31-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:16:13-52
-32            android:exported="false" />
-32-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:17:13-37
-33        <activity
-33-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:18:9-20:40
-34            android:name="com.example.carbotrackphoneapplication.TravelprocessActivity"
-34-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:19:13-50
-35            android:exported="false" />
-35-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:20:13-37
-36        <activity
-36-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:21:9-23:40
-37            android:name="com.example.carbotrackphoneapplication.ChooserideActivity"
-37-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:22:13-47
-38            android:exported="false" />
-38-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:23:13-37
-39        <activity
-39-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:24:9-26:40
-40            android:name="com.example.carbotrackphoneapplication.SignupActivity"
-40-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:25:13-43
-41            android:exported="false" />
-41-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:26:13-37
-42        <activity
-42-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:27:9-29:40
-43            android:name="com.example.carbotrackphoneapplication.LoginActivity"
-43-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:28:13-42
-44            android:exported="false" />
-44-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:29:13-37
-45        <activity
-45-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:30:9-38:20
-46            android:name="com.example.carbotrackphoneapplication.OnboardingActivity"
-46-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:31:13-47
-47            android:exported="true" >
-47-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:32:13-36
-48            <intent-filter>
-48-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:33:13-37:29
-49                <action android:name="android.intent.action.MAIN" />
-49-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:34:17-69
-49-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:34:25-66
-50
-51                <category android:name="android.intent.category.LAUNCHER" />
-51-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:36:17-77
-51-->D:\CarboTrack\Andriod\app\src\main\AndroidManifest.xml:36:27-74
-52            </intent-filter>
-53        </activity>
-54
-55        <provider
-55-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-56            android:name="androidx.startup.InitializationProvider"
-56-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
-57            android:authorities="com.example.carbotrackphoneapplication.androidx-startup"
-57-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
-58            android:exported="false" >
-58-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
-59            <meta-data
-59-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
-60                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-60-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
-61                android:value="androidx.startup" />
-61-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
-62            <meta-data
-62-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\0f236ebef3a393681536a11b82843d71\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
-63                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-63-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\0f236ebef3a393681536a11b82843d71\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
-64                android:value="androidx.startup" />
-64-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\0f236ebef3a393681536a11b82843d71\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
-65            <meta-data
-65-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
-66                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-66-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
-67                android:value="androidx.startup" />
-67-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
-68        </provider>
-69
-70        <receiver
-70-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
-71            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-71-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
-72            android:directBootAware="false"
-72-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
-73            android:enabled="true"
-73-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
-74            android:exported="true"
-74-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
-75            android:permission="android.permission.DUMP" >
-75-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
-76            <intent-filter>
-76-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
-77                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-77-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
-77-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
-78            </intent-filter>
-79            <intent-filter>
-79-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
-80                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-80-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
-80-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
-81            </intent-filter>
-82            <intent-filter>
-82-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
-83                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-83-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
-83-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
-84            </intent-filter>
-85            <intent-filter>
-85-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
-86                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-86-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
-86-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
-87            </intent-filter>
-88        </receiver>
-89    </application>
-90
-91</manifest>
+11    <!-- These will be needed for OSMDroid to provide permissions needed for the dependency -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:6:5-67
+12-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+13-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:7:5-81
+13-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:7:22-78
+14    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+14-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:8:5-79
+14-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:8:22-76
+15    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Include required permissions for Google Maps API to run. -->
+15-->[com.google.android.libraries.places:places:3.2.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\99853728d6d54573363734ec03a47018\transformed\places-3.2.0\AndroidManifest.xml:11:5-76
+15-->[com.google.android.libraries.places:places:3.2.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\99853728d6d54573363734ec03a47018\transformed\places-3.2.0\AndroidManifest.xml:11:22-73
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\46f3f1ee4b2f3983f9d7b7fdb71a3000\transformed\play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
+16-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\46f3f1ee4b2f3983f9d7b7fdb71a3000\transformed\play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
+17
+18    <uses-feature
+18-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\46f3f1ee4b2f3983f9d7b7fdb71a3000\transformed\play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+19        android:glEsVersion="0x00020000"
+19-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\46f3f1ee4b2f3983f9d7b7fdb71a3000\transformed\play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+20        android:required="true" />
+20-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\46f3f1ee4b2f3983f9d7b7fdb71a3000\transformed\play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+21
+22    <supports-screens
+22-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:11:5-14:40
+23        android:anyDensity="true"
+23-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:12:9-34
+24        android:largeScreens="true"
+24-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:13:9-36
+25        android:normalScreens="true" />
+25-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:14:9-37
+26
+27    <uses-feature
+27-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:16:5-18:36
+28        android:name="android.hardware.location.network"
+28-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:17:9-57
+29        android:required="false" />
+29-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:18:9-33
+30    <uses-feature
+30-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:19:5-21:36
+31        android:name="android.hardware.location.gps"
+31-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:20:9-53
+32        android:required="false" />
+32-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:21:9-33
+33    <uses-feature
+33-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:22:5-24:36
+34        android:name="android.hardware.telephony"
+34-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:23:9-50
+35        android:required="false" />
+35-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:24:9-33
+36    <uses-feature
+36-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:25:5-27:36
+37        android:name="android.hardware.wifi"
+37-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:26:9-45
+38        android:required="false" />
+38-->[org.osmdroid:osmdroid-android:6.1.11] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\cb1168135c9fca619fc86e9733a7aa61\transformed\osmdroid-android-6.1.11\AndroidManifest.xml:27:9-33
+39
+40    <permission
+40-->[androidx.core:core:1.13.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\c347674ce0e4b6093b74c6d81b86c9d3\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+41        android:name="com.example.carbotrackphoneapplication.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+41-->[androidx.core:core:1.13.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\c347674ce0e4b6093b74c6d81b86c9d3\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+42        android:protectionLevel="signature" />
+42-->[androidx.core:core:1.13.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\c347674ce0e4b6093b74c6d81b86c9d3\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+43
+44    <uses-permission android:name="com.example.carbotrackphoneapplication.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+44-->[androidx.core:core:1.13.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\c347674ce0e4b6093b74c6d81b86c9d3\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+44-->[androidx.core:core:1.13.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\c347674ce0e4b6093b74c6d81b86c9d3\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+45
+46    <application
+46-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:10:5-56:19
+47        android:allowBackup="true"
+47-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:11:9-35
+48        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+48-->[androidx.core:core:1.13.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\c347674ce0e4b6093b74c6d81b86c9d3\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+49        android:dataExtractionRules="@xml/data_extraction_rules"
+49-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:12:9-65
+50        android:debuggable="true"
+51        android:extractNativeLibs="true"
+52        android:fullBackupContent="@xml/backup_rules"
+52-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:13:9-54
+53        android:icon="@mipmap/ic_launcher"
+53-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:14:9-43
+54        android:label="@string/app_name"
+54-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:15:9-41
+55        android:roundIcon="@mipmap/ic_launcher_round"
+55-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:16:9-54
+56        android:supportsRtl="true"
+56-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:17:9-35
+57        android:testOnly="true"
+58        android:theme="@style/Theme.CarboTrackPhoneApplication" >
+58-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:18:9-64
+59        <activity
+59-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:20:9-22:40
+60            android:name="com.example.carbotrackphoneapplication.SignupActivity"
+60-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:21:13-43
+61            android:exported="false" />
+61-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:22:13-37
+62        <activity
+62-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:23:9-25:40
+63            android:name="com.example.carbotrackphoneapplication.LoginActivity"
+63-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:24:13-42
+64            android:exported="false" />
+64-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:25:13-37
+65        <activity
+65-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:26:9-28:40
+66            android:name="com.example.carbotrackphoneapplication.Employeedaily_Activity"
+66-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:27:13-51
+67            android:exported="false" />
+67-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:28:13-37
+68        <activity
+68-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:29:9-31:40
+69            android:name="com.example.carbotrackphoneapplication.InitialTravelActivity"
+69-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:30:13-50
+70            android:exported="false" />
+70-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:31:13-37
+71        <activity
+71-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:32:9-34:40
+72            android:name="com.example.carbotrackphoneapplication.PlanYourRideActivity"
+72-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:33:13-49
+73            android:exported="false" />
+73-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:34:13-37
+74        <activity
+74-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:35:9-37:40
+75            android:name="com.example.carbotrackphoneapplication.ChooseRideActivity"
+75-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:36:13-47
+76            android:exported="false" />
+76-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:37:13-37
+77        <activity
+77-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:38:9-40:40
+78            android:name="com.example.carbotrackphoneapplication.TravelSummaryActivity"
+78-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:39:13-50
+79            android:exported="false" />
+79-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:40:13-37
+80        <activity
+80-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:41:9-43:40
+81            android:name="com.example.carbotrackphoneapplication.TravelProcessActivity"
+81-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:42:13-50
+82            android:exported="false" />
+82-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:43:13-37
+83        <activity
+83-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:44:9-46:40
+84            android:name="com.example.carbotrackphoneapplication.TravelCompletedActivity"
+84-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:45:13-52
+85            android:exported="false" />
+85-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:46:13-37
+86        <activity
+86-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:47:9-55:20
+87            android:name="com.example.carbotrackphoneapplication.OnboardingActivity"
+87-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:48:13-47
+88            android:exported="true" >
+88-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:49:13-36
+89            <intent-filter>
+89-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:50:13-54:29
+90                <action android:name="android.intent.action.MAIN" />
+90-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:51:17-69
+90-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:51:25-66
+91
+92                <category android:name="android.intent.category.LAUNCHER" />
+92-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:53:17-77
+92-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:53:27-74
+93            </intent-filter>
+94        </activity>
+95        <activity
+95-->[com.google.android.libraries.places:places:3.2.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\99853728d6d54573363734ec03a47018\transformed\places-3.2.0\AndroidManifest.xml:15:9-21:20
+96            android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
+96-->[com.google.android.libraries.places:places:3.2.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\99853728d6d54573363734ec03a47018\transformed\places-3.2.0\AndroidManifest.xml:16:13-91
+97            android:exported="false"
+97-->[com.google.android.libraries.places:places:3.2.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\99853728d6d54573363734ec03a47018\transformed\places-3.2.0\AndroidManifest.xml:17:13-37
+98            android:label="@string/places_autocomplete_label"
+98-->[com.google.android.libraries.places:places:3.2.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\99853728d6d54573363734ec03a47018\transformed\places-3.2.0\AndroidManifest.xml:18:13-62
+99            android:theme="@style/PlacesAutocompleteOverlay"
+99-->[com.google.android.libraries.places:places:3.2.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\99853728d6d54573363734ec03a47018\transformed\places-3.2.0\AndroidManifest.xml:19:13-61
+100            android:windowSoftInputMode="adjustResize" >
+100-->[com.google.android.libraries.places:places:3.2.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\99853728d6d54573363734ec03a47018\transformed\places-3.2.0\AndroidManifest.xml:20:13-55
+101        </activity> <!-- Needs to be explicitly declared on P+ -->
+102        <uses-library
+102-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\46f3f1ee4b2f3983f9d7b7fdb71a3000\transformed\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+103            android:name="org.apache.http.legacy"
+103-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\46f3f1ee4b2f3983f9d7b7fdb71a3000\transformed\play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+104            android:required="false" />
+104-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\46f3f1ee4b2f3983f9d7b7fdb71a3000\transformed\play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+105
+106        <activity
+106-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\5c367b6836eff0598ae923d1815fdeb4\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+107            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+107-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\5c367b6836eff0598ae923d1815fdeb4\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+108            android:exported="false"
+108-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\5c367b6836eff0598ae923d1815fdeb4\transformed\play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+109            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+109-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\5c367b6836eff0598ae923d1815fdeb4\transformed\play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+110
+111        <meta-data
+111-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\e75c1b2ea54715320f7996861dfad3de\transformed\play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+112            android:name="com.google.android.gms.version"
+112-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\e75c1b2ea54715320f7996861dfad3de\transformed\play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+113            android:value="@integer/google_play_services_version" />
+113-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\e75c1b2ea54715320f7996861dfad3de\transformed\play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+114
+115        <provider
+115-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+116            android:name="androidx.startup.InitializationProvider"
+116-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+117            android:authorities="com.example.carbotrackphoneapplication.androidx-startup"
+117-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+118            android:exported="false" >
+118-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+119            <meta-data
+119-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+120                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+120-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+121                android:value="androidx.startup" />
+121-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\48cd044e98358c3428040b2e7ee60c56\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+122            <meta-data
+122-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\0f236ebef3a393681536a11b82843d71\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+123                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+123-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\0f236ebef3a393681536a11b82843d71\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+124                android:value="androidx.startup" />
+124-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\0f236ebef3a393681536a11b82843d71\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+125            <meta-data
+125-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+126                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+126-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+127                android:value="androidx.startup" />
+127-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+128        </provider>
+129
+130        <receiver
+130-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+131            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+131-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+132            android:directBootAware="false"
+132-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+133            android:enabled="true"
+133-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+134            android:exported="true"
+134-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+135            android:permission="android.permission.DUMP" >
+135-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+136            <intent-filter>
+136-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+137                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+137-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+137-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+138            </intent-filter>
+139            <intent-filter>
+139-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+140                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+140-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+140-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+141            </intent-filter>
+142            <intent-filter>
+142-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+143                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+143-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+143-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+144            </intent-filter>
+145            <intent-filter>
+145-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+146                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+146-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+146-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+147            </intent-filter>
+148        </receiver>
+149
+150        <service
+150-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:29:9-35:19
+151            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+151-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:30:13-103
+152            android:exported="false" >
+152-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:31:13-37
+153            <meta-data
+153-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:32:13-34:39
+154                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+154-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:33:17-94
+155                android:value="cct" />
+155-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:34:17-36
+156        </service>
+157        <service
+157-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:26:9-30:19
+158            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+158-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:27:13-117
+159            android:exported="false"
+159-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:28:13-37
+160            android:permission="android.permission.BIND_JOB_SERVICE" >
+160-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:29:13-69
+161        </service>
+162
+163        <receiver
+163-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:32:9-34:40
+164            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+164-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:33:13-132
+165            android:exported="false" />
+165-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:34:13-37
+166    </application>
+167
+168</manifest>

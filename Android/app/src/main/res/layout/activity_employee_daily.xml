@@ -113,7 +113,7 @@
 
     </androidx.cardview.widget.CardView>
 
-    com.github.mikephil.charting.charts.LineChart
+    <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/lineChart"
         android:layout_width="0dp"
         android:layout_height="200dp"
@@ -205,26 +205,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Need to update this when the other employee homepage is done-->
-        <Button
-            android:id="@+id/daily_button"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="DAILY"
-            android:backgroundTint="@color/green"
-            android:textColor="@android:color/white"
-            android:layout_marginEnd="4dp" />
-
-        <Button
-            android:id="@+id/monthly_button"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="MONTHLY"
-            android:backgroundTint="@color/lightGray"
-            android:textColor="@android:color/white"
-            android:layout_marginEnd="4dp" />
 
     </LinearLayout>
 

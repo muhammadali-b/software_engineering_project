@@ -1,0 +1,9 @@
+<resources>
+    <item type="id" name="btnCar" />
+    <item type="id" name="btnBike" />
+    <item type="id" name="btnRideShare" />
+    <item type="id" name="btnPublicTransport" />
+    <item type="id" name="btnStartTrip" />
+    <item type="id" name="btnEndTrip" />
+    <item type="id" name="btnDone" />
+</resources>
