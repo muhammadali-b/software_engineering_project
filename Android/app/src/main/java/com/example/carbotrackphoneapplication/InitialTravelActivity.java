@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.android.volley.BuildConfig;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -32,10 +33,16 @@ public class InitialTravelActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         Configuration.getInstance().setUserAgentValue("CarboTrack");
         setContentView(R.layout.activity_initial_travel);
 
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // Here we are making sure that when a user is on a page from clicking it on the navigation bar, that page stays highlighted.
+        bottomNavigationView.setSelectedItemId(R.id.nav_travel);
+
         mapView = findViewById(R.id.mapView);
         TextView tvWhereTo = findViewById(R.id.tvWhereTo);
         locationClient = LocationServices.getFusedLocationProviderClient(this);

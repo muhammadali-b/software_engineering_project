@@ -46,6 +46,7 @@ dependencies {
     // This allows users to have the option od enabling location services on their mobile devices
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation("com.google.android.libraries.places:places:3.2.0")
+    implementation("androidx.preference:preference:1.2.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

@@ -28,8 +28,12 @@ public class Employeedaily_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_daily);
 
-        // Bind views
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        // Here we are making sure that when a user is on a page from clicking it on the navigation bar, that page stays highlighted.
+        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+
         lineChart = findViewById(R.id.lineChart);
         dateTextView = findViewById(R.id.dateTextView);
         milesValueText = findViewById(R.id.milesValueText);
