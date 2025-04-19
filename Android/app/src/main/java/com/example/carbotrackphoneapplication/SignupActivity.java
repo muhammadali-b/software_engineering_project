@@ -1,5 +1,7 @@
 package com.example.carbotrackphoneapplication;
 
+// Here is the Java code for the signup page.
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -85,10 +87,10 @@ public class SignupActivity extends AppCompatActivity {
                 conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
                 conn.setDoOutput(true);
 
-                // Assuming single name input — split first/last if needed
+                // These will be the input fields for the Employee/Employer to enter their information when signing up on the app.
                 JSONObject jsonParam = new JSONObject();
-                jsonParam.put("f_name", first_name);         // using entire name as first name
-                jsonParam.put("l_name", last_name);            // empty last name
+                jsonParam.put("f_name", first_name);
+                jsonParam.put("l_name", last_name);
                 jsonParam.put("email", email);
                 jsonParam.put("password", password);
                 jsonParam.put("role", role.toLowerCase());

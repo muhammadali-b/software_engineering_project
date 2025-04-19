@@ -9,15 +9,15 @@
 9        android:targetSdkVersion="35" />
 10
 11    <!-- These will be needed for OSMDroid to provide permissions needed for the dependency -->
-12    <uses-permission android:name="android.permission.INTERNET" />
-12-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:6:5-67
-12-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:6:22-64
+12    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+12-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:6:5-79
+12-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:6:22-76
 13    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 13-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:7:5-81
 13-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:7:22-78
-14    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-14-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:8:5-79
-14-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:8:22-76
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:8:5-67
+14-->D:\CarboTrack\Android\app\src\main\AndroidManifest.xml:8:22-64
 15    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Include required permissions for Google Maps API to run. -->
 15-->[com.google.android.libraries.places:places:3.2.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\99853728d6d54573363734ec03a47018\transformed\places-3.2.0\AndroidManifest.xml:11:5-76
 15-->[com.google.android.libraries.places:places:3.2.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\99853728d6d54573363734ec03a47018\transformed\places-3.2.0\AndroidManifest.xml:11:22-73
@@ -235,73 +235,86 @@
 127-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
 128        </provider>
 129
-130        <receiver
-130-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
-131            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-131-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
-132            android:directBootAware="false"
-132-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
-133            android:enabled="true"
-133-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
-134            android:exported="true"
-134-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
-135            android:permission="android.permission.DUMP" >
-135-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
-136            <intent-filter>
-136-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
-137                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-137-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
-137-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
-138            </intent-filter>
-139            <intent-filter>
-139-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
-140                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-140-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
-140-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
-141            </intent-filter>
-142            <intent-filter>
-142-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
-143                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-143-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
-143-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
-144            </intent-filter>
-145            <intent-filter>
-145-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
-146                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-146-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
-146-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
-147            </intent-filter>
-148        </receiver>
-149
-150        <service
-150-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:29:9-35:19
-151            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-151-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:30:13-103
-152            android:exported="false" >
-152-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:31:13-37
-153            <meta-data
-153-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:32:13-34:39
-154                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-154-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:33:17-94
-155                android:value="cct" />
-155-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:34:17-36
-156        </service>
+130        <uses-library
+130-->[androidx.window:window:1.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\e29c657e60f1d1163ec353e20f302232\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+131            android:name="androidx.window.extensions"
+131-->[androidx.window:window:1.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\e29c657e60f1d1163ec353e20f302232\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+132            android:required="false" />
+132-->[androidx.window:window:1.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\e29c657e60f1d1163ec353e20f302232\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+133        <uses-library
+133-->[androidx.window:window:1.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\e29c657e60f1d1163ec353e20f302232\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+134            android:name="androidx.window.sidecar"
+134-->[androidx.window:window:1.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\e29c657e60f1d1163ec353e20f302232\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+135            android:required="false" />
+135-->[androidx.window:window:1.0.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\e29c657e60f1d1163ec353e20f302232\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+136
+137        <receiver
+137-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+138            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+138-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+139            android:directBootAware="false"
+139-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+140            android:enabled="true"
+140-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+141            android:exported="true"
+141-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+142            android:permission="android.permission.DUMP" >
+142-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+143            <intent-filter>
+143-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+144                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+144-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+144-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+145            </intent-filter>
+146            <intent-filter>
+146-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+147                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+147-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+147-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+148            </intent-filter>
+149            <intent-filter>
+149-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+150                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+150-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+150-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+151            </intent-filter>
+152            <intent-filter>
+152-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+153                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+153-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+153-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\1e603370a8016298f3e3dc6bdb605a82\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+154            </intent-filter>
+155        </receiver>
+156
 157        <service
-157-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:26:9-30:19
-158            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-158-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:27:13-117
-159            android:exported="false"
-159-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:28:13-37
-160            android:permission="android.permission.BIND_JOB_SERVICE" >
-160-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:29:13-69
-161        </service>
-162
-163        <receiver
-163-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:32:9-34:40
-164            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-164-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:33:13-132
-165            android:exported="false" />
-165-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:34:13-37
-166    </application>
-167
-168</manifest>
+157-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:29:9-35:19
+158            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+158-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:30:13-103
+159            android:exported="false" >
+159-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:31:13-37
+160            <meta-data
+160-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:32:13-34:39
+161                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+161-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:33:17-94
+162                android:value="cct" />
+162-->[com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\f8ceb842f65e6cbb64f6ac0007244233\transformed\transport-backend-cct-2.3.0\AndroidManifest.xml:34:17-36
+163        </service>
+164        <service
+164-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:26:9-30:19
+165            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+165-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:27:13-117
+166            android:exported="false"
+166-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:28:13-37
+167            android:permission="android.permission.BIND_JOB_SERVICE" >
+167-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:29:13-69
+168        </service>
+169
+170        <receiver
+170-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:32:9-34:40
+171            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+171-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:33:13-132
+172            android:exported="false" />
+172-->[com.google.android.datatransport:transport-runtime:2.2.3] C:\Users\Xenob\.gradle\caches\8.11.1\transforms\d7fb936efd0828cfdc39a7cd9568aaa9\transformed\transport-runtime-2.2.3\AndroidManifest.xml:34:13-37
+173    </application>
+174
+175</manifest>
