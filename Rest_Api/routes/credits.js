@@ -203,4 +203,29 @@ router.get('/employee-miles/:employee_id', (req, res) => {
   });
 });
 
+/**
+ * Get carbon credit transaction history for an employee
+ */
+router.get('/employee-transactions/:employee_id', (req, res) => {
+  const { employee_id } = req.params;
+
+  const query = `
+    SELECT type, amount, transaction_date
+    FROM transactions
+    WHERE employee_id = ?
+    ORDER BY transaction_date DESC
+  `;
+
+  db.query(query, [employee_id], (err, results) => {
+    if (err) {
+      return res.status(500).json({ message: 'Database error', error: err });
+    }
+
+    return res.status(200).json({
+      message: `Transaction history for employee ${employee_id}`,
+      data: results
+    });
+  });
+});
+
 module.exports = router;
