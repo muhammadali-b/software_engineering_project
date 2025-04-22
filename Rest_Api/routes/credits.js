@@ -161,5 +161,46 @@ router.post('/add-trip', (req, res) => {
   });
 });
 
+/**
+ * Get all mileage records for an employee with calculated carbon credits
+ */
+router.get('/employee-miles/:employee_id', (req, res) => {
+  const { employee_id } = req.params;
+
+  const multipliers = {
+    car: 1,
+    rideshare: 1.5,
+    bike: 2,
+    public_transport: 3
+  };
+
+  const query = `
+    SELECT vehicle_type, miles, recorded_at
+    FROM employee_miles
+    WHERE employee_id = ?
+    ORDER BY recorded_at DESC
+  `;
+
+  db.query(query, [employee_id], (err, results) => {
+    if (err) return res.status(500).json({ message: 'Database error', error: err });
+
+    const data = results.map(record => {
+      const multiplier = multipliers[record.vehicle_type] || 1;
+      const carbon_credits = Math.round(record.miles * multiplier);
+
+      return {
+        vehicle_type: record.vehicle_type,
+        miles: record.miles,
+        carbon_credits,
+        recorded_at: record.recorded_at
+      };
+    });
+
+    return res.status(200).json({
+      message: `Trip data for employee ${employee_id}`,
+      data
+    });
+  });
+});
 
 module.exports = router;
