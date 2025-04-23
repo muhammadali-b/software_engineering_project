@@ -47,6 +47,5 @@ router.get('/approved-employers', (req, res) => {
   });
 });
 
-
   
   module.exports = router;
