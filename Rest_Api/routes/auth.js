@@ -30,7 +30,7 @@ router.post('/register', async (req, res) => {
       if (role === 'bank') {
         status = 'approved';
       } else if (role === 'admin') {
-        status = 'approved';
+        status = 'approved'; // Temporary for us to get Admin account.
       } else if (role === 'employer' || role === 'employee') {
         status = 'pending';
       } else {
