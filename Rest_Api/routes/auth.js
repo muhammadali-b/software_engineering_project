@@ -29,6 +29,8 @@ router.post('/register', async (req, res) => {
       let status;
       if (role === 'bank') {
         status = 'approved';
+      } else if (role === 'admin') {
+        status = 'approved';
       } else if (role === 'employer' || role === 'employee') {
         status = 'pending';
       } else {
