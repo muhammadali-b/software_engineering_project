@@ -256,4 +256,32 @@ router.get('/latest-credits/:employee_id', (req, res) => {
   });
 });
 
+/**
+ * Get latest miles record for an employee
+ */
+router.get('/latest-miles/:employee_id', (req, res) => {
+  const { employee_id } = req.params;
+
+  const query = `
+    SELECT vehicle_type, miles, recorded_at
+    FROM employee_miles
+    WHERE employee_id = ?
+    ORDER BY recorded_at DESC
+    LIMIT 1
+  `;
+
+  db.query(query, [employee_id], (err, results) => {
+    if (err) return res.status(500).json({ message: 'Database error', error: err });
+
+    if (results.length === 0) {
+      return res.status(200).json({ message: 'No mileage records found', data: null });
+    }
+
+    return res.status(200).json({
+      message: 'Latest mileage entry fetched successfully',
+      data: results[0]
+    });
+  });
+});
+
 module.exports = router;
