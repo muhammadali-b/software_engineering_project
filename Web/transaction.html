@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Transactions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,10 +13,15 @@
     <link rel="stylesheet" href="dashboard_styles.css" />
   </head>
   <body>
+    <header>
+      <div class="top-bar">
+        <h1>CarboTrack</h1>
+      </div>
+    </header>
     <div class="container">
       <!--Sidebar Start-->
       <aside>
-        <div class="top">
+        <!--<div class="top">
           <div class="logo">
             <h2>
               <span class="ctlogo">CarboTrack</span>
@@ -27,7 +32,7 @@
               thermostat_carbon
             </span>
           </div>
-        </div>
+        </div>-->
         <!--Top End-->
 
         <div class="sidebar">
@@ -35,13 +40,13 @@
             ><span class="material-symbols-sharp">Analytics</span>
             <h3>Dashboard</h3>
           </a>
-          <a href="http://127.0.0.1:5500/Web/account.html"
-            ><span class="material-symbols-sharp">Person</span>
-            <h3>Account</h3>
+          <a href="http://127.0.0.1:5500/Web/approval.html"
+            ><span class="material-symbols-sharp">Analytics</span>
+            <h3>Approval Managment</h3>
           </a>
           <a href="http://127.0.0.1:5500/Web/transaction.html"
             ><span class="material-symbols-sharp">Toll</span>
-            <h3>Transaction</h3>
+            <h3>Transactions</h3>
           </a>
           <a href="http://127.0.0.1:5500/Web/user_manage.html"
             ><span class="material-symbols-sharp">Supervised_User_Circle</span>
@@ -60,15 +65,21 @@
         <h1>Carbon Credit Transactions</h1>
         <div class="main-container">
           <div class="search-bar">
-            <h4>ID Transaction</h4>
+            <h4>Transaction ID</h4>
             <input type="text" placeholder="Search..." class="search-input" />
+            <h4>Seller/Buyer</h4>
+            <input type="text" placeholder="" class="search-input" />
+            <h4>Status</h4>
+            <input type="text" placeholder="" class="search-input" />
+            <h4>Transaction Type</h4>
+            <input type="text" placeholder="" class="search-input" />
             <button class="btn" id="myinput">Search</button>
           </div>
           <div class="user-tbl">
             <table id="myTable">
-              <th>ID Transaction</th>
-              <th>Seller</th>
-              <th>Buyer</th>
+              <th>Employee ID</th>
+              <th>Carbon Credits</th>
+              <th>Type</th>
               <th>Quantity Traded</th>
               <th>Price Traded</th>
               <th>Status</th>
@@ -100,6 +111,7 @@
           </div>
         </div>
       </main>
+    </div>
   </body>
   <script src="scripts.js"></script>
 </html>
