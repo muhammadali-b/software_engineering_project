@@ -228,6 +228,32 @@ router.get('/employee-transactions/:employee_id', (req, res) => {
   });
 });
 
+/**
+ * Get latest carbon credit balance for an employee
+ */
+router.get('/latest-credits/:employee_id', (req, res) => {
+  const { employee_id } = req.params;
 
+  const query = `
+    SELECT carbon_credits, recorded_at FROM employee_carboncredits
+    WHERE employee_id = ?
+    ORDER BY recorded_at DESC
+    LIMIT 1
+  `;
+
+  db.query(query, [employee_id], (err, results) => {
+    if (err) return res.status(500).json({ message: 'Database error' });
+
+    if (results.length === 0) {
+      return res.status(200).json({ message: 'No carbon credits yet', carbon_credits: 0 });
+    }
+
+    return res.status(200).json({
+      message: 'Latest carbon credits fetched successfully',
+      carbon_credits: results[0].carbon_credits,
+      recorded_at: results[0].recorded_at
+    });
+  });
+});
 
 module.exports = router;
