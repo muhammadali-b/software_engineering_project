@@ -228,6 +228,4 @@ router.get('/employee-transactions/:employee_id', (req, res) => {
   });
 });
 
-
-
 module.exports = router;

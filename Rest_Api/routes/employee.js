@@ -40,4 +40,27 @@ router.patch('/approve-employee/:id', (req, res) => {
   });
 });
 
+/**
+ * Get all approved employees
+ */
+router.get('/approved-employees', (req, res) => {
+  const query = `
+    SELECT id, f_name, l_name, email
+    FROM users
+    WHERE role = 'employee' AND status = 'approved'
+  `;
+
+  db.query(query, (err, results) => {
+    if (err) {
+      return res.status(500).json({ message: 'Database error' });
+    }
+
+    res.status(200).json({
+      message: 'Approved employees fetched successfully',
+      data: results
+    });
+  });
+});
+
+
 module.exports = router;
