@@ -8,7 +8,7 @@ const db = require('../db');
  * GET all unapproved employers
  */
 router.get('/unapproved-employers', (req, res) => {
-  const sql = "SELECT * FROM employers WHERE status = 'pending'";
+  const sql = "SELECT * FROM users WHERE status = 'pending' AND role = 'employer'";
   db.query(sql, (err, results) => {
     if (err) return res.status(500).json({ message: "Database error" });
     res.json(results);
