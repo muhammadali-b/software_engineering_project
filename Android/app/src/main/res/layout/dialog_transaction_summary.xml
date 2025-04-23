@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/rounded_background">
+
+    <TextView
+        android:id="@+id/transactionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transaction Summary"
+        android:textColor="@color/green"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp" />
+
+    <TextView android:id="@+id/txnNumber" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Transaction No: 123456"/>
+    <TextView android:id="@+id/txnQuantity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Quantity: --"/>
+    <TextView android:id="@+id/txnPrice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Price Traded: --"/>
+    <TextView android:id="@+id/txnTo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="To: --"/>
+    <TextView android:id="@+id/txnTotal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Total Price: --"/>
+
+    <Button
+        android:id="@+id/txnOkBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/green"
+        android:textColor="@android:color/white"/>
+</LinearLayout>

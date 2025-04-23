@@ -48,6 +48,11 @@ dependencies {
     implementation("com.google.android.libraries.places:places:3.2.0")
     implementation("androidx.preference:preference:1.2.1")
 
+    // This is for users to add a profile picture on the appropriate profile page.
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.google.android.material:material:1.9.0")
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

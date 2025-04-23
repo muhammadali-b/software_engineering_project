@@ -1,0 +1,8 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:padding="12dp"
+    android:gravity="center_vertical"
+    android:textColor="#000000"
+    android:background="@drawable/spinner_background"
+    android:textSize="14sp"/>

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.carbotrackphoneapplication.app-mergeDebugResources-43:/values-pt-rPT/values-pt-rPT.xml",
+            "outputFile": "com.example.carbotrackphoneapplication.app-mergeDebugResources-44:/values-pt-rPT/values-pt-rPT.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Xenob\\.gradle\\caches\\8.11.1\\transforms\\e75c1b2ea54715320f7996861dfad3de\\transformed\\play-services-basement-18.1.0\\res\\values-pt-rPT\\values.xml",

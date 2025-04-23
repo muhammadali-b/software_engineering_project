@@ -27,6 +27,30 @@
             android:name=".Employeedaily_Activity"
             android:exported="false" />
         <activity
+            android:name=".EmployeeProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmployerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmployeeApprovalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmployerPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmployerTradingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TravelHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmployerHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmployerProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".InitialTravelActivity"
             android:exported="false" />
         <activity

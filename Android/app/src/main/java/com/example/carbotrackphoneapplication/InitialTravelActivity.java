@@ -67,10 +67,11 @@ public class InitialTravelActivity extends AppCompatActivity {
                 return true;
 
             }
-            //Need to implement the profile page for the nav bar
-//                case R.id.nav_profile:
-//                    // startActivity(new Intent(...));
-//                    return true;
+            else if (id == R.id.nav_profile)
+            {
+                startActivity(new Intent(InitialTravelActivity.this, EmployeeProfileActivity.class));
+                return true;
+            }
             return false;
         });
 

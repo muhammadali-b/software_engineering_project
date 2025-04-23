@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.carbotrackphoneapplication.app-mergeDebugResources-43:/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "com.example.carbotrackphoneapplication.app-mergeDebugResources-44:/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Xenob\\.gradle\\caches\\8.11.1\\transforms\\f2f1817052dfbc7c477bf933af5f1663\\transformed\\preference-1.2.1\\res\\values-en-rGB\\values-en-rGB.xml",

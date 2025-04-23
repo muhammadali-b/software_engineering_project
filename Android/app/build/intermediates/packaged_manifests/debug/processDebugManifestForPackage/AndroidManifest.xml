@@ -66,6 +66,30 @@
             android:name="com.example.carbotrackphoneapplication.Employeedaily_Activity"
             android:exported="false" />
         <activity
+            android:name="com.example.carbotrackphoneapplication.EmployeeProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.carbotrackphoneapplication.EmployerActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.carbotrackphoneapplication.EmployeeApprovalActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.carbotrackphoneapplication.EmployerPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.carbotrackphoneapplication.EmployerTradingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.carbotrackphoneapplication.TravelHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.carbotrackphoneapplication.EmployerHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.carbotrackphoneapplication.EmployerProfileActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.carbotrackphoneapplication.InitialTravelActivity"
             android:exported="false" />
         <activity
