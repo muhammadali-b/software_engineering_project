@@ -6,44 +6,32 @@
     <title>Admin Login</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <div class="login-container">
-        <h2>Login</h2>
-        <form id="login-form">
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="input-group">
-              <label for="role">Role</label>
-        <select
-          name="role"
-          id="role"
-          selected="selected"
-          required
-        >
-        <option
-          value="Admin">Admin</option>
-          <option
-          value="Employer">Employer</option>
-          <option
-          value="Banker">Banker</option>
-          Select Role
-        </select>
-            </div>
-            <div class="login-links">
-              
-            </div>
-            <button type="submit" class="login-btn" id="mybtn">Login</button>
-            <div class="container-register">
-        <p>Create an account <a href="registration.html">Sign Up</a>.</p>
+  <body>
+    <header>
+      <div class="top-bar">
+        <h1>CarboTrack</h1>
       </div>
-        </form>
-        <p id="error-message"></p>
-    </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="login-container">
+          <h2>Login</h2>
+          <form class="form">
+            <div class="input-group">
+              <label for="email">Email</label>
+              <input type="text" id="email" name="email" required />
+            </div>
+            <div class="input-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+            <div class="login-links"></div>
+            <button type="submit" class="login-btn" id="mybtn">Login</button>
+          </form>
+          <p id="error-message"></p>
+        </div>
+      </div>
+    </main>
     <script src="scripts.js"></script>
   </body>
 </html>
