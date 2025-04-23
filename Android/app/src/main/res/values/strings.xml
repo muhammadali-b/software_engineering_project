@@ -1,0 +1,13 @@
+<resources>
+    <!-- Other string values can go here -->
+
+    <string-array name="employee_list">
+        <item>Hannah</item>
+        <item>John</item>
+        <item>Jeff</item>
+        <item>Chakira</item>
+        <item>Ali</item>
+        <item>Trang</item>
+        <item>Keerthigiri</item>
+    </string-array>
+</resources>

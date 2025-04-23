@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This will be the navigation menu on the bottom of the phone application-->
+
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home_24"
+        android:title="Homepage"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/nav_activity"
+        android:icon="@drawable/baseline_list_24"
+        android:title="Activity"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/person_24"
+        android:title="Profile"
+        tools:ignore="HardcodedText" />
+</menu>
+

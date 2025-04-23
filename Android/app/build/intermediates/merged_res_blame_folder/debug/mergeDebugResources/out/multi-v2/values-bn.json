@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.carbotrackphoneapplication.app-mergeDebugResources-43:/values-bn/values-bn.xml",
+            "outputFile": "com.example.carbotrackphoneapplication.app-mergeDebugResources-44:/values-bn/values-bn.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Xenob\\.gradle\\caches\\8.11.1\\transforms\\c347674ce0e4b6093b74c6d81b86c9d3\\transformed\\core-1.13.0\\res\\values-bn\\values-bn.xml",

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="employee_list">
+        <item>Hannah</item>
+        <item>John</item>
+        <item>Jeff</item>
+        <item>Chakira</item>
+        <item>Ali</item>
+        <item>Trang</item>
+        <item>Keerthigiri</item>
+    </string-array>
     <color name="black">#FF000000</color>
     <color name="darkGray">#404040</color>
     <color name="green">#3AAD67</color>
@@ -15,6 +24,7 @@
     <style name="Base.Theme.CarboTrackPhoneApplication" parent="Theme.Material3.DayNight.NoActionBar">
         
         
+
     </style>
     <style name="InputField">
         <item name="android:layout_width">match_parent</item>

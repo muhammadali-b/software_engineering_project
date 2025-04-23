@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.carbotrackphoneapplication.app-mergeDebugResources-43:/values-zh-rHK/values-zh-rHK.xml",
+            "outputFile": "com.example.carbotrackphoneapplication.app-mergeDebugResources-44:/values-zh-rHK/values-zh-rHK.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Xenob\\.gradle\\caches\\8.11.1\\transforms\\99853728d6d54573363734ec03a47018\\transformed\\places-3.2.0\\res\\values-zh-rHK\\values.xml",
