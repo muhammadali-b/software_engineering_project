@@ -27,6 +27,7 @@ import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -36,6 +37,8 @@ public class EmployeeProfileActivity extends AppCompatActivity {
 
     ImageView profileImageView;
     TextView userName, userEmail;
+
+    String apiURL = "https://softwareengineeringproject-production.up.railway.app/api/change-password";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +53,13 @@ public class EmployeeProfileActivity extends AppCompatActivity {
         userName = findViewById(R.id.userName);
         userEmail = findViewById(R.id.userEmail);
 
-        // Load image if previously saved
+        // Here we are loading the profile image if it was saved
         loadSavedProfileImage();
 
-        // Fetch employee info
+        // Here is where we are getting the name and email of the employee to display on the profile page
         fetchEmployeeInfo();
 
-        // Image picker
+        // Here is where users are able to choose a profile image
         profileImageView.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(intent, PICK_IMAGE_REQUEST);
@@ -191,10 +194,68 @@ public class EmployeeProfileActivity extends AppCompatActivity {
 
         Button saveBtn = modalView.findViewById(R.id.savePasswordBtn);
         saveBtn.setOnClickListener(v -> {
-            if (validatePassword(currentPass, newPass, repeatPass)) {
-                Toast.makeText(this, "Password changed successfully!", Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
+
+            // Here is a check to make sure that the password the emploee enters is valid
+            if (validatePassword(currentPass, newPass, repeatPass))
+            {
+                String oldPassword = currentPass.getText().toString();
+                String newPassword = newPass.getText().toString();
+                String email = userEmail.getText().toString();
+
+                new Thread(() -> {
+                    try {
+                        URL url = new URL(apiURL);
+                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                        conn.setRequestMethod("POST");
+                        conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+                        conn.setDoOutput(true);
+
+                        JSONObject jsonParam = new JSONObject();
+                        jsonParam.put("email", email);
+                        jsonParam.put("oldPassword", oldPassword);
+                        jsonParam.put("newPassword", newPassword);
+
+                        OutputStream os = conn.getOutputStream();
+                        os.write(jsonParam.toString().getBytes("UTF-8"));
+                        os.close();
+
+                        int code = conn.getResponseCode();
+                        InputStream is = (code >= 200 && code < 300) ? conn.getInputStream() : conn.getErrorStream();
+
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+                        StringBuilder result = new StringBuilder();
+                        String line;
+                        while ((line = reader.readLine()) != null)
+                        {
+                            result.append(line);
+                        }
+                        reader.close();
+
+                        runOnUiThread(() -> {
+                            if (code == 200 || code == 201)
+                            {
+                                Toast.makeText(this, "Password was changed successfully!", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+
+                            }
+                            else
+                            {
+                                Toast.makeText(this, "Please try again. Failed to change password.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        conn.disconnect();
+
+                    } catch (Exception e) {
+                        Log.e("PasswordChange", "Error: " + e.getMessage());
+                        runOnUiThread(() -> Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                    }
+
+                }).start();
+
             }
+
+
         });
 
         dialog.show();

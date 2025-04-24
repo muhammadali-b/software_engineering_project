@@ -2,6 +2,7 @@ package com.example.carbotrackphoneapplication;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -122,10 +123,14 @@ public class LoginActivity extends AppCompatActivity {
                         String role = user.optString("role", "");
                         String emailFromServer = user.optString("email", "");
                         int employeeid = user.optInt("id", -1);
+                        int employerid = user.optInt("id", -1);
                         boolean isApproved = true; // Replace with user.optBoolean("approved", false) if available
 
                         // Here we are getting the employee id after logging in
                         getSharedPreferences("role", MODE_PRIVATE).edit().putInt("employee_id", employeeid);
+
+                        // Here we are getting the employer id after logging in
+                        getSharedPreferences("role", MODE_PRIVATE).edit().putInt("employer_id", employeeid);
 
                         if (!isApproved) {
                             Toast.makeText(this, "Approval is needed before you can log in.", Toast.LENGTH_SHORT).show();

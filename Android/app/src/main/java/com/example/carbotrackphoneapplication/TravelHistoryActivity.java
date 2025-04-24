@@ -118,9 +118,7 @@ public class TravelHistoryActivity extends AppCompatActivity {
             holder.location.setText(item.location);
             holder.time.setText(item.time);
             holder.info.setText(item.info);
-            holder.rebookBtn.setOnClickListener(v ->
-                    Toast.makeText(TravelHistoryActivity.this, "Rebook clicked", Toast.LENGTH_SHORT).show()
-            );
+
         }
 
         @Override
@@ -128,13 +126,11 @@ public class TravelHistoryActivity extends AppCompatActivity {
 
         class TravelViewHolder extends RecyclerView.ViewHolder {
             TextView location, time, info;
-            Button rebookBtn;
             TravelViewHolder(View itemView) {
                 super(itemView);
                 location = itemView.findViewById(R.id.location);
                 time = itemView.findViewById(R.id.time);
                 info = itemView.findViewById(R.id.creditsMiles);
-                rebookBtn = itemView.findViewById(R.id.rebookBtn);
             }
         }
     }

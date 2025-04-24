@@ -2,19 +2,44 @@ package com.example.carbotrackphoneapplication;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.InputType;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class EmployerProfileActivity extends AppCompatActivity {
 
     TextView userName, userEmail;
     LinearLayout changePasswordBtn, logoutBtn;
+    String apiURL = "https://softwareengineeringproject-production.up.railway.app/api/change-password";
+
+    private static final int PICK_IMAGE_REQUEST = 1;
+    ImageView profileImageView;
+    private String employerEmail = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,44 +50,36 @@ public class EmployerProfileActivity extends AppCompatActivity {
         userEmail = findViewById(R.id.userEmail);
         changePasswordBtn = findViewById(R.id.changePasswordBtn);
         logoutBtn = findViewById(R.id.logoutBtn);
+        profileImageView = findViewById(R.id.profileImageView);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.employer_bottom_navigation);
-
-        // Here we are making sure that when a user is on a page from clicking it on the navigation bar, that page stays highlighted.
         bottomNavigationView.setSelectedItemId(R.id.nav_profile);
 
-        // Dummy user info
-        userName.setText("Abcxyz");
-        userEmail.setText("abcxyz@gmail.com");
-
-        // Open password modal
         changePasswordBtn.setOnClickListener(view -> openChangePasswordModal());
 
-        // Logout action
+        loadSavedProfileImage();
+        fetchEmployerInfo();  // pulls email and updates profile
+
+        profileImageView.setOnClickListener(view -> {
+            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(intent, PICK_IMAGE_REQUEST);
+        });
+
         logoutBtn.setOnClickListener(v -> {
             Toast.makeText(this, "Logged out successfully.", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(EmployerProfileActivity.this, OnboardingActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // clears back stack
+            Intent intent = new Intent(this, OnboardingActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-            finish(); // finish current activity
+            finish();
         });
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
-
-            if (id == R.id.nav_home)
-            {
-                startActivity(new Intent(EmployerProfileActivity.this, EmployerHomeActivity.class));
+            if (id == R.id.nav_home) {
+                startActivity(new Intent(this, EmployerHomeActivity.class));
                 return true;
-            }
-            else if(id == R.id.nav_activity)
-            {
-                startActivity(new Intent(EmployerProfileActivity.this, EmployerActivity.class));
-                return true;
-
-            }
-            else if (id == R.id.nav_profile)
-            {
+            } else if (id == R.id.nav_activity) {
+                startActivity(new Intent(this, EmployerActivity.class));
                 return true;
             }
             return false;
@@ -75,32 +92,77 @@ public class EmployerProfileActivity extends AppCompatActivity {
         EditText currentPass = modalView.findViewById(R.id.currentPassword);
         EditText newPass = modalView.findViewById(R.id.newPassword);
         EditText repeatPass = modalView.findViewById(R.id.repeatPassword);
-
         ImageView toggleEye1 = modalView.findViewById(R.id.toggleEye1);
         ImageView toggleEye2 = modalView.findViewById(R.id.toggleEye2);
         ImageView toggleEye3 = modalView.findViewById(R.id.toggleEye3);
-
-        // Show dialog
-        AlertDialog dialog = new AlertDialog.Builder(this)
-                .setView(modalView)
-                .setCancelable(true)
-                .create();
-
-        // 👈 Handle top-left back arrow to dismiss modal
         ImageView backArrow = modalView.findViewById(R.id.backArrow);
+
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setView(modalView).setCancelable(true).create();
+
         backArrow.setOnClickListener(view -> dialog.dismiss());
 
-        // 👁 Toggle visibility on password fields
         setPasswordToggle(toggleEye1, currentPass);
         setPasswordToggle(toggleEye2, newPass);
         setPasswordToggle(toggleEye3, repeatPass);
 
-        // 💾 Save logic
         Button saveBtn = modalView.findViewById(R.id.savePasswordBtn);
         saveBtn.setOnClickListener(v -> {
             if (validatePassword(currentPass, newPass, repeatPass)) {
-                Toast.makeText(this, "Password changed successfully!", Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
+                String oldPassword = currentPass.getText().toString();
+                String newPassword = newPass.getText().toString();
+
+                // fallback if email wasn't pulled
+                if (employerEmail.isEmpty()) {
+                    employerEmail = getSharedPreferences("CarboTrackPrefs", MODE_PRIVATE)
+                            .getString("email", "");
+                }
+
+                String email = employerEmail;
+
+                new Thread(() -> {
+                    try {
+                        URL url = new URL(apiURL);
+                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                        conn.setRequestMethod("POST");
+                        conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+                        conn.setDoOutput(true);
+
+                        JSONObject jsonParam = new JSONObject();
+                        jsonParam.put("email", email);
+                        jsonParam.put("oldPassword", oldPassword);
+                        jsonParam.put("newPassword", newPassword);
+
+                        OutputStream os = conn.getOutputStream();
+                        os.write(jsonParam.toString().getBytes("UTF-8"));
+                        os.close();
+
+                        int code = conn.getResponseCode();
+                        InputStream is = (code >= 200 && code < 300) ? conn.getInputStream() : conn.getErrorStream();
+
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+                        StringBuilder result = new StringBuilder();
+                        String line;
+                        while ((line = reader.readLine()) != null) result.append(line);
+                        reader.close();
+
+                        runOnUiThread(() -> {
+                            if (code == 200 || code == 201) {
+                                Toast.makeText(this, "Password was changed successfully!", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                            } else {
+                                Toast.makeText(this, "Please try again. Failed to change password.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        conn.disconnect();
+
+                    } catch (Exception e) {
+                        Log.e("PasswordChange", "Error: " + e.getMessage());
+                        runOnUiThread(() -> Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                    }
+
+                }).start();
             }
         });
 
@@ -111,10 +173,10 @@ public class EmployerProfileActivity extends AppCompatActivity {
         toggleIcon.setOnClickListener(view -> {
             if (passwordField.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
                 passwordField.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                toggleIcon.setImageResource(R.drawable.ic_eye_closed); // closed eye icon
+                toggleIcon.setImageResource(R.drawable.ic_eye_closed);
             } else {
                 passwordField.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                toggleIcon.setImageResource(R.drawable.ic_eye_open); // open eye icon
+                toggleIcon.setImageResource(R.drawable.ic_eye_open);
             }
             passwordField.setSelection(passwordField.getText().length());
         });
@@ -141,5 +203,84 @@ public class EmployerProfileActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    private void fetchEmployerInfo() {
+        new Thread(() -> {
+            try {
+                SharedPreferences prefs = getSharedPreferences("CarboTrackPrefs", MODE_PRIVATE);
+                int employerId = prefs.getInt("employer_id", -1);
+                if (employerId == -1) {
+                    Log.e("EmployerProfile", "No employer_id found in SharedPreferences");
+                    return;
+                }
+
+                URL url = new URL("https://softwareengineeringproject-production.up.railway.app/api/approved-employers/" + employerId);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+
+                int code = conn.getResponseCode();
+                InputStream is = (code >= 200 && code < 300) ? conn.getInputStream() : conn.getErrorStream();
+
+                BufferedReader in = new BufferedReader(new InputStreamReader(is));
+                StringBuilder jsonResponse = new StringBuilder();
+                String line;
+                while ((line = in.readLine()) != null) jsonResponse.append(line);
+                in.close();
+
+                JSONObject emp = new JSONObject(jsonResponse.toString());
+
+                String fullName = emp.getString("f_name") + " " + emp.getString("l_name");
+                this.employerEmail = emp.getString("email");
+
+                runOnUiThread(() -> {
+                    userName.setText(fullName);
+                    userEmail.setText(employerEmail);
+                });
+
+            } catch (Exception e) {
+                Log.e("EmployerProfile", "Error fetching info: " + e.getMessage());
+                runOnUiThread(() ->
+                        Toast.makeText(this, "Failed to fetch profile info.", Toast.LENGTH_SHORT).show());
+            }
+        }).start();
+    }
+
+
+
+    private void loadSavedProfileImage() {
+        SharedPreferences prefs = getSharedPreferences("CarboTrackPrefs", MODE_PRIVATE);
+        String imageBase64 = prefs.getString("profile_image_base64", null);
+        if (imageBase64 != null) {
+            byte[] imageBytes = Base64.decode(imageBase64, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+            profileImageView.setImageBitmap(bitmap);
+        }
+    }
+
+    private void saveProfileImage(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 90, baos);
+        String imageBase64 = Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
+
+        getSharedPreferences("CarboTrackPrefs", MODE_PRIVATE)
+                .edit()
+                .putString("profile_image_base64", imageBase64)
+                .apply();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+            try {
+                Uri selectedImage = data.getData();
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                profileImageView.setImageBitmap(bitmap);
+                saveProfileImage(bitmap);
+            } catch (Exception e) {
+                Log.e("ImageUpload", "Error: " + e.getMessage());
+            }
+        }
     }
 }
