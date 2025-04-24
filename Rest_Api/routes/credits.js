@@ -291,16 +291,13 @@ router.get('/all-transactions', async (req, res) => {
   try {
     const [rows] = await db.promise().query(`
       SELECT 
-        t.transaction_id,
-        t.type,
-        t.amount,
-        t.transaction_date,
-        e.f_name,
-        e.l_name,
-        e.email
-      FROM transactions t
-      JOIN employees e ON t.employee_id = e.id
-      ORDER BY t.transaction_date DESC
+        transaction_id,
+        employee_id,
+        amount,
+        type,
+        transaction_date
+      FROM transactions
+      ORDER BY transaction_date DESC
     `);
 
     res.status(200).json({
