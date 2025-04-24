@@ -2,6 +2,7 @@ package com.example.carbotrackphoneapplication;
 
 //Here is the Java code for the choose ride page.
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,6 +31,10 @@ public class ChooseRideActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences prefs = getSharedPreferences("CarboTrackPrefs", MODE_PRIVATE);
+        int employee_id = prefs.getInt("employee_id", -1);
+
         setContentView(R.layout.activity_choose_ride);
 
         userLat = getIntent().getDoubleExtra("userLat", 0);
@@ -94,6 +99,9 @@ public class ChooseRideActivity extends AppCompatActivity {
             intent.putExtra("time", selectedRide.getTime());
             intent.putExtra("distance", distance);
             intent.putExtra("credits", Utils.calculateCarbonCredits(distance, selectedRide.getType()));
+            //Here is the employee id that is retrieved from the employee after logging in
+            intent.putExtra("employee_id", employee_id);
+
             startActivity(intent);
         });
         rideRecyclerView.setAdapter(adapter);

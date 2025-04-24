@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#F8FAF9">
 
-    <!-- Green Rounded Header Background -->
     <View
         android:id="@+id/header_background"
         android:layout_width="0dp"
@@ -16,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Top Row with Back Button + Title -->
+
     <LinearLayout
         android:id="@+id/headerRow"
         android:layout_width="0dp"
@@ -48,7 +47,6 @@
             android:textColor="@android:color/white" />
     </LinearLayout>
 
-    <!-- RecyclerView for Trip History -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"

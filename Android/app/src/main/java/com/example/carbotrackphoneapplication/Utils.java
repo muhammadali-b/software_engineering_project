@@ -33,9 +33,9 @@ public class Utils {
     public static int calculateCarbonCredits(float distance, String transportMode) {
         switch(transportMode.toLowerCase()) {
             case "bike":
-                return (int) (distance * 3);
-            case "public transport":
                 return (int) (distance * 2);
+            case "public transport":
+                return (int) (distance * 3);
             case "rideshare":
                 return (int) (distance * 1.5);
             case "car":

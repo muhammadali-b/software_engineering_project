@@ -56,10 +56,6 @@
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-48:\\layout\\ride_item.xml"
     },
     {
-        "merged": "com.example.carbotrackphoneapplication.app-debug-46:/layout_dialog_change_password.xml.flat",
-        "source": "com.example.carbotrackphoneapplication.app-main-48:/layout/dialog_change_password.xml"
-    },
-    {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-46:\\layout_item_travel_history.xml.flat",
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-48:\\layout\\item_travel_history.xml"
     },
@@ -200,10 +196,6 @@
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-48:\\drawable-v24\\login_bg.jpg"
     },
     {
-        "merged": "com.example.carbotrackphoneapplication.app-debug-46:/layout_forget_password.xml.flat",
-        "source": "com.example.carbotrackphoneapplication.app-main-48:/layout/forget_password.xml"
-    },
-    {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-46:\\drawable_rounded_white_background.xml.flat",
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-48:\\drawable\\rounded_white_background.xml"
     },
@@ -268,6 +260,10 @@
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-48:\\drawable\\spinner_with_arrow.xml"
     },
     {
+        "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-46:\\layout_forget_password.xml.flat",
+        "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-48:\\layout\\forget_password.xml"
+    },
+    {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-46:\\drawable-v24_onboarding_bg.jpg.flat",
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-48:\\drawable-v24\\onboarding_bg.jpg"
     },
@@ -282,6 +278,10 @@
     {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-46:\\drawable_baseline_payment_24.xml.flat",
         "source": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-main-48:\\drawable\\baseline_payment_24.xml"
+    },
+    {
+        "merged": "com.example.carbotrackphoneapplication.app-debug-46:/layout_activity_employee_profile.xml.flat",
+        "source": "com.example.carbotrackphoneapplication.app-main-48:/layout/activity_employee_profile.xml"
     },
     {
         "merged": "C:\\Users\\Xenob\\.gradle\\daemon\\8.11.1\\com.example.carbotrackphoneapplication.app-debug-46:\\drawable_baseline_keyboard_arrow_left_24.xml.flat",

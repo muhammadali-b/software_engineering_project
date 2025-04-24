@@ -137,7 +137,7 @@ public class PlanYourRideActivity extends AppCompatActivity{
             return;
         }
 
-        // This is roughly a 20 mile radius from the user
+        // This is roughly a 30 mile radius from the user
         double radius = 0.3;
 
         double lonMin = userLon - radius;
