@@ -62,5 +62,34 @@ router.get('/approved-employees', (req, res) => {
   });
 });
 
+/**
+ * Get user details (name, email, role) by ID
+ */
+router.get('/user/:id', (req, res) => {
+  const userId = req.params.id;
+
+  const query = `
+    SELECT id, f_name, l_name, email, role
+    FROM users
+    WHERE id = ?
+  `;
+
+  db.query(query, [userId], (err, results) => {
+    if (err) {
+      return res.status(500).json({ message: 'Database error', error: err });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const user = results[0];
+    res.status(200).json({
+      message: 'User details fetched successfully',
+      data: user
+    });
+  });
+});
+
 
 module.exports = router;
