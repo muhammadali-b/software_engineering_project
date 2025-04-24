@@ -287,30 +287,31 @@ router.get('/latest-miles/:employee_id', (req, res) => {
 /**
  * All transactions history
  */ 
-app.get('/all-transactions', async (req, res) => {
+router.get('/all-transactions', async (req, res) => {
   try {
-      const [rows] = await db.execute(`
-          SELECT 
-              t.transaction_id,
-              t.type,
-              t.amount,
-              t.transaction_date,
-              e.f_name,
-              e.l_name,
-              e.email
-          FROM transactions t
-          JOIN employees e ON t.employee_id = e.id
-          ORDER BY t.transaction_date DESC
-      `);
+    const [rows] = await db.promise().query(`
+      SELECT 
+        t.transaction_id,
+        t.type,
+        t.amount,
+        t.transaction_date,
+        e.f_name,
+        e.l_name,
+        e.email
+      FROM transactions t
+      JOIN employees e ON t.employee_id = e.id
+      ORDER BY t.transaction_date DESC
+    `);
 
-      res.status(200).json({
-          message: "All transaction history",
-          data: rows
-      });
+    res.status(200).json({
+      message: "All transaction history",
+      data: rows
+    });
   } catch (error) {
-      console.error("Error fetching all transactions:", error);
-      res.status(500).json({ message: "Internal server error" });
+    console.error("Error fetching all transactions:", error);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
+
 
 module.exports = router;
