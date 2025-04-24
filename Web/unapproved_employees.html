@@ -26,9 +26,13 @@
             ><span class="material-symbols-sharp">Supervised_User_Circle</span>
             <h3>User Management</h3>
           </a>
-            <a href="http://127.0.0.1:5500/Web/approval.html"
+            <a href="http://127.0.0.1:5500/Web/unapproved_employees.html"
             ><span class="material-symbols-sharp">Analytics</span>
-            <h3>Approval Managment</h3>
+            <h3>Employee Approval Managment</h3>
+          </a>
+          <a href="http://127.0.0.1:5500/Web/unapproved_employers.html"
+            ><span class="material-symbols-sharp">Analytics</span>
+            <h3>Employer Approval Managment</h3>
           </a>
           <a href="http://127.0.0.1:5500/Web/transaction.html"
             ><span class="material-symbols-sharp">Toll</span>
@@ -54,11 +58,6 @@
         <!-- Filter Section -->
         <div>
           <input id="searchNameEmail" type="text" placeholder="Search" />
-          <select id="roleFilter">
-            <option value="">Role</option>
-            <option value="Banker">Banker</option>
-            <option value="Admin">Admin</option>
-          </select>
           <select id="statusFilter">
             <option value="">Status</option>
             <option value="Pending">Pending</option>
@@ -72,7 +71,7 @@
         <table>
           <thead>
             <tr>
-              <th>ID</th>
+              <th>Employee ID</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email</th>
