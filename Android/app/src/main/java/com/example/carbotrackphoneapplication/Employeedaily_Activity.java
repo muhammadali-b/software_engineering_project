@@ -10,7 +10,6 @@ import android.widget.AutoCompleteTextView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -20,13 +19,20 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import android.os.Handler;
+import android.os.Looper;
+import org.json.JSONObject;
+import java.net.HttpURLConnection;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.net.URL;
+
 public class Employeedaily_Activity extends AppCompatActivity {
 
     TextView dateTextView, milesValueText, total_carbon_credits;
     AutoCompleteTextView monthDropdown, weekDropdown;
     LineChart lineChart;
 
-    // Here is where we are creating arrays of strings that will hold the current month and week.
     String[] currentMonth = {new SimpleDateFormat("MMMM", Locale.US).format(new Date())};
     String[] weeks = {"Week 1", "Week 2", "Week 3", "Week 4", "Week 5"};
 
@@ -35,13 +41,9 @@ public class Employeedaily_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_daily);
 
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        // Here we are making sure that when a user is on a page from clicking it on the navigation bar, that page stays highlighted.
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
 
-        // Here is where we are initializing the views for the page.
         lineChart = findViewById(R.id.lineChart);
         dateTextView = findViewById(R.id.dateTextView);
         milesValueText = findViewById(R.id.milesValueText);
@@ -49,61 +51,88 @@ public class Employeedaily_Activity extends AppCompatActivity {
         monthDropdown = findViewById(R.id.monthDropdown);
         weekDropdown = findViewById(R.id.weekDropdown);
 
-        // Here is where we are adding the functionalities for the month dropdown button.
         ArrayAdapter<String> monthAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, currentMonth);
         monthDropdown.setAdapter(monthAdapter);
         monthDropdown.setText(currentMonth[0], false);
-        monthDropdown.setEnabled(true);  //Here users are able to select between the different months
+        monthDropdown.setEnabled(true);
 
-        // Here is where we are adding functionalities for the week dropdown
         ArrayAdapter<String> weekAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, weeks);
         weekDropdown.setAdapter(weekAdapter);
         weekDropdown.setOnItemClickListener((parent, view, position, id) -> {
-            // Here add logic to use an api endpoint to get data about the employee's accumulated carbon credits and miles.
             weekly_graphData(position + 1);
         });
 
-        // Load initial daily data
         loadDailyData();
-
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
-
-            if (id == R.id.nav_home)
-            {
-                startActivity(new Intent(Employeedaily_Activity.this, Employeedaily_Activity.class));
+            if (id == R.id.nav_home) {
+                startActivity(new Intent(this, Employeedaily_Activity.class));
                 return true;
-            }
-            else if(id == R.id.nav_travel)
-            {
-                startActivity(new Intent(Employeedaily_Activity.this, InitialTravelActivity.class));
+            } else if (id == R.id.nav_travel) {
+                startActivity(new Intent(this, InitialTravelActivity.class));
                 return true;
-
-            }
-            else if (id == R.id.nav_profile)
-            {
-                startActivity(new Intent(Employeedaily_Activity.this, EmployeeProfileActivity.class));
+            } else if (id == R.id.nav_profile) {
+                startActivity(new Intent(this, EmployeeProfileActivity.class));
                 return true;
             }
             return false;
         });
-
     }
 
     private void loadDailyData() {
         String currentDay = new SimpleDateFormat("EEE, MMM d", Locale.US).format(new Date());
         dateTextView.setText(currentDay);
 
-        // Need to change this to integrate the api endpoint that will be responsible for getting the carbon credits and the miles from the database.
-        milesValueText.setText("2500");
-        total_carbon_credits.setText("Total Carbon Credits: 2500");
+        int employeeId = getSharedPreferences("CarboPrefs", MODE_PRIVATE).getInt("user_id", -1);
+        if (employeeId == -1) return;
+
+        String baseUrl = "https://softwareengineeringproject-production.up.railway.app/api";
+
+        new Thread(() -> {
+            try {
+                // Fetch carbon credits
+                URL urlCredits = new URL(baseUrl + "/latest-credits/" + employeeId);
+                HttpURLConnection connCredits = (HttpURLConnection) urlCredits.openConnection();
+                connCredits.setRequestMethod("GET");
+
+                BufferedReader readerCredits = new BufferedReader(new InputStreamReader(connCredits.getInputStream()));
+                StringBuilder responseCredits = new StringBuilder();
+                String line;
+                while ((line = readerCredits.readLine()) != null) responseCredits.append(line);
+                readerCredits.close();
+
+                JSONObject jsonCredits = new JSONObject(responseCredits.toString());
+                int credits = jsonCredits.optInt("carbon_credits", 0);
+
+                // Fetch miles
+                URL urlMiles = new URL(baseUrl + "/latest-miles/" + employeeId);
+                HttpURLConnection connMiles = (HttpURLConnection) urlMiles.openConnection();
+                connMiles.setRequestMethod("GET");
+
+                BufferedReader readerMiles = new BufferedReader(new InputStreamReader(connMiles.getInputStream()));
+                StringBuilder responseMiles = new StringBuilder();
+                while ((line = readerMiles.readLine()) != null) responseMiles.append(line);
+                readerMiles.close();
+
+                JSONObject jsonMiles = new JSONObject(responseMiles.toString());
+                JSONObject dataObject = jsonMiles.getJSONObject("data");
+                int miles = dataObject.optInt("miles", 0);
+
+                new Handler(Looper.getMainLooper()).post(() -> {
+                    int m = miles;
+                    int cc = credits;
+                    milesValueText.setText(String.valueOf(miles));
+                    total_carbon_credits.setText("Total Carbon Credits: " + credits);
+                });
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
-
-    private void weekly_graphData (int weekNumber)
-    {
-        // Need to implement logic here to use the api endpoint for getting data from the database to display on the line graph.
+    private void weekly_graphData(int weekNumber) {
         ArrayList<Entry> entries = new ArrayList<>();
         entries.add(new Entry(0, 100 * weekNumber));
         entries.add(new Entry(1, 50 * weekNumber));
@@ -113,8 +142,7 @@ public class Employeedaily_Activity extends AppCompatActivity {
         entries.add(new Entry(5, 30 * weekNumber));
         entries.add(new Entry(6, 400 * weekNumber));
 
-        // Need to update this to
-        LineDataSet dataSet = new LineDataSet(entries, "Miles /  Carbon Credits (Week " + weekNumber + ")");
+        LineDataSet dataSet = new LineDataSet(entries, "Miles / Carbon Credits (Week " + weekNumber + ")");
         dataSet.setLineWidth(2f);
         dataSet.setCircleRadius(4f);
         dataSet.setDrawValues(false);
@@ -123,7 +151,5 @@ public class Employeedaily_Activity extends AppCompatActivity {
         lineChart.setData(lineData);
         lineChart.getDescription().setEnabled(false);
         lineChart.invalidate();
-
     }
-
 }
