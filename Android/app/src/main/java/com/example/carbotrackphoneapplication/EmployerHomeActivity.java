@@ -16,6 +16,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class EmployerHomeActivity extends AppCompatActivity {
 
     private Employee selectedEmployee = null;
     private final String BASE_URL = "https://softwareengineeringproject-production.up.railway.app/api";
+    private String transactionType = "buy";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class EmployerHomeActivity extends AppCompatActivity {
 
         buyBtn.setOnClickListener(v -> {
             if (selectedEmployee != null) {
+                transactionType = "buy";
                 openBuySellModal();
             } else {
                 Toast.makeText(this, "Select an employee first", Toast.LENGTH_SHORT).show();
@@ -61,6 +64,7 @@ public class EmployerHomeActivity extends AppCompatActivity {
 
         sellBtn.setOnClickListener(v -> {
             if (selectedEmployee != null) {
+                transactionType = "sell";
                 openBuySellModal();
             } else {
                 Toast.makeText(this, "Select an employee first", Toast.LENGTH_SHORT).show();
@@ -70,7 +74,6 @@ public class EmployerHomeActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.nav_home) {
-                startActivity(new Intent(this, EmployerHomeActivity.class));
                 return true;
             } else if (id == R.id.nav_activity) {
                 startActivity(new Intent(this, EmployerActivity.class));
@@ -134,7 +137,8 @@ public class EmployerHomeActivity extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onNothingSelected(AdapterView<?> parent) { }
+                        public void onNothingSelected(AdapterView<?> parent) {
+                        }
                     });
                 });
 
@@ -155,7 +159,6 @@ public class EmployerHomeActivity extends AppCompatActivity {
     private void fetchStatsForEmployee(int employeeId) {
         new Thread(() -> {
             int miles = 0, credits = 0;
-
             try {
                 // Fetch miles
                 URL milesURL = new URL(BASE_URL + "/latest-miles/" + employeeId);
@@ -202,7 +205,89 @@ public class EmployerHomeActivity extends AppCompatActivity {
     }
 
     private void openBuySellModal() {
-        Toast.makeText(this, "Buy/Sell modal would use: " + selectedEmployee.f_name, Toast.LENGTH_SHORT).show();
+        View modalView = LayoutInflater.from(this).inflate(R.layout.dialog_buy_sell_modal, null);
+
+        TextView modalTitle = modalView.findViewById(R.id.modalTitle);
+        TextView dropdownLabel = modalView.findViewById(R.id.dropdownLabel);
+        TextView quantityText = modalView.findViewById(R.id.quantityText);
+        Spinner partnerSpinner = modalView.findViewById(R.id.partnerSpinner);
+        ImageButton incrementBtn = modalView.findViewById(R.id.incrementBtn);
+        ImageButton decrementBtn = modalView.findViewById(R.id.decrementBtn);
+        Button cancelBtn = modalView.findViewById(R.id.cancelBtn);
+        Button checkoutBtn = modalView.findViewById(R.id.checkoutBtn);
+
+        modalTitle.setText(transactionType.equals("buy") ? "Buy Carbon Credits" : "Sell Carbon Credits");
+        dropdownLabel.setText(transactionType.equals("buy") ? "From" : "To");
+
+        int[] creditQuantity = {15}; // Mutable wrapper to use in inner class
+        quantityText.setText(String.valueOf(creditQuantity[0]));
+
+        String[] partners = {"ABC", "XYZ", "SOS", "LOL", "SUM", "SUB", "MUL", "DIV", "BTS"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, partners);
+        partnerSpinner.setAdapter(adapter);
+
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setView(modalView)
+                .setCancelable(true)
+                .create();
+
+        incrementBtn.setOnClickListener(v -> {
+            creditQuantity[0]++;
+            quantityText.setText(String.valueOf(creditQuantity[0]));
+        });
+
+        decrementBtn.setOnClickListener(v -> {
+            if (creditQuantity[0] > 1) {
+                creditQuantity[0]--;
+                quantityText.setText(String.valueOf(creditQuantity[0]));
+            }
+        });
+
+        cancelBtn.setOnClickListener(v -> dialog.dismiss());
+
+        checkoutBtn.setOnClickListener(v -> {
+            int amount = creditQuantity[0];
+            String url = BASE_URL + "/" + (transactionType.equals("buy") ? "buy-credits" : "sell-credits");
+
+            new Thread(() -> {
+                try {
+                    JSONObject json = new JSONObject();
+                    json.put("employee_id", selectedEmployee.id);
+                    json.put("amount", amount);
+
+                    URL endpoint = new URL(url);
+                    HttpURLConnection conn = (HttpURLConnection) endpoint.openConnection();
+                    conn.setRequestMethod("POST");
+                    conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+                    conn.setDoOutput(true);
+
+                    OutputStream os = conn.getOutputStream();
+                    os.write(json.toString().getBytes("UTF-8"));
+                    os.close();
+
+                    int responseCode = conn.getResponseCode();
+                    conn.disconnect();
+
+                    runOnUiThread(() -> {
+                        if (responseCode == 200 || responseCode == 201) {
+                            Toast.makeText(this, "Transaction successful", Toast.LENGTH_SHORT).show();
+                            fetchStatsForEmployee(selectedEmployee.id);
+                        } else {
+                            Toast.makeText(this, "Transaction failed", Toast.LENGTH_SHORT).show();
+                        }
+                        dialog.dismiss();
+                    });
+
+                } catch (Exception e) {
+                    runOnUiThread(() -> {
+                        Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    });
+                }
+            }).start();
+        });
+
+        dialog.show();
     }
 
     private static class Employee {
