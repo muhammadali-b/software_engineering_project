@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_login);
 
         Intent intent = getIntent();
@@ -63,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(onboardingIntent);
         });
 
-        // 👇 Forgot Password logic opens reset modal
+
         TextView txtForgotPassword = findViewById(R.id.txt_forgot_password);
         txtForgotPassword.setOnClickListener(view -> openForgotPasswordModal());
 
@@ -120,7 +121,11 @@ public class LoginActivity extends AppCompatActivity {
 
                         String role = user.optString("role", "");
                         String emailFromServer = user.optString("email", "");
+                        int employeeid = user.optInt("id", -1);
                         boolean isApproved = true; // Replace with user.optBoolean("approved", false) if available
+
+                        // Here we are getting the employee id after logging in
+                        getSharedPreferences("role", MODE_PRIVATE).edit().putInt("employee_id", employeeid);
 
                         if (!isApproved) {
                             Toast.makeText(this, "Approval is needed before you can log in.", Toast.LENGTH_SHORT).show();

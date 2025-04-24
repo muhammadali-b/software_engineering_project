@@ -4,6 +4,7 @@ package com.example.carbotrackphoneapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.widget.*;
 
@@ -26,6 +27,7 @@ public class SignupActivity extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextView;
     EditText etfirstName, etlastName, etEmail, etPassword, etConfirmPassword;
     Button signUpButton;
+    ImageView imgTogglePassword, imgToggleConfirmPassword;
 
     String apiUrl = "https://softwareengineeringproject-production.up.railway.app/api/register";
 
@@ -42,6 +44,8 @@ public class SignupActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         etConfirmPassword = findViewById(R.id.etConfirmPassword);
         signUpButton = findViewById(R.id.btnSignUp);
+        imgTogglePassword = findViewById(R.id.imgTogglePassword);
+        imgToggleConfirmPassword = findViewById(R.id.imgToggleConfirmPassword);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, roles);
         autoCompleteTextView.setAdapter(adapter);
@@ -76,7 +80,33 @@ public class SignupActivity extends AppCompatActivity {
             Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
             startActivity(intent);
         });
+
+        //Here is the functionality of changing the visibility of passwords written
+        imgTogglePassword.setOnClickListener(view -> {
+            if (etPassword.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                imgTogglePassword.setImageResource(R.drawable.ic_eye_open);
+            } else {
+                etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                imgTogglePassword.setImageResource(R.drawable.ic_eye_closed);
+            }
+            etPassword.setSelection(etPassword.getText().length());
+        });
+
+        imgToggleConfirmPassword.setOnClickListener(view -> {
+            if (etConfirmPassword.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                etConfirmPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                imgToggleConfirmPassword.setImageResource(R.drawable.ic_eye_open);
+            } else {
+                etConfirmPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                imgToggleConfirmPassword.setImageResource(R.drawable.ic_eye_closed);
+            }
+            etConfirmPassword.setSelection(etConfirmPassword.getText().length());
+        });
+
+
     }
+
 
     private void registerUser(String first_name, String last_name, String email, String password, String role) {
         new Thread(() -> {
