@@ -6,22 +6,31 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Random;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EmployerHomeActivity extends AppCompatActivity {
 
     Spinner employeeSpinner;
-    TextView employeeName, employeeEmail, employeeMiles, employeeCredits, employeeTotal;
+    TextView employeeName, employeeEmail, employeeMiles, employeeCredits;
     CircleImageView employeeImage;
     Button buyBtn, sellBtn;
 
-    private int creditQuantity = 15;
-    private String transactionType = "buy"; // "buy" or "sell"
+    private Employee selectedEmployee = null;
+    private final String BASE_URL = "https://softwareengineeringproject-production.up.railway.app/api";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,163 +38,184 @@ public class EmployerHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_employer_home);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        // Here we are making sure that when a user is on a page from clicking it on the navigation bar, that page stays highlighted.
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
 
-        // Initialize UI references
         employeeSpinner = findViewById(R.id.employeeSpinner);
         employeeName = findViewById(R.id.employeeName);
         employeeEmail = findViewById(R.id.employeeEmail);
         employeeMiles = findViewById(R.id.employeeMiles);
         employeeCredits = findViewById(R.id.employeeCredits);
-        employeeTotal = findViewById(R.id.employeeTotal);
         employeeImage = findViewById(R.id.employeeImage);
         buyBtn = findViewById(R.id.buyBtn);
         sellBtn = findViewById(R.id.sellBtn);
 
-        // Setup Spinner adapter using string-array
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this,
-                R.array.employee_list,
-                android.R.layout.simple_spinner_item
-        );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        employeeSpinner.setAdapter(adapter);
+        fetchApprovedEmployees();
 
-        // Spinner selection logic
-        employeeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selected = parent.getItemAtPosition(position).toString();
-                updateEmployeeCard(selected);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) { }
-        });
-
-        // Buy Button
         buyBtn.setOnClickListener(v -> {
-            transactionType = "buy";
-            openBuySellModal();
+            if (selectedEmployee != null) {
+                openBuySellModal();
+            } else {
+                Toast.makeText(this, "Select an employee first", Toast.LENGTH_SHORT).show();
+            }
         });
 
-        // Sell Button
         sellBtn.setOnClickListener(v -> {
-            transactionType = "sell";
-            openBuySellModal();
+            if (selectedEmployee != null) {
+                openBuySellModal();
+            } else {
+                Toast.makeText(this, "Select an employee first", Toast.LENGTH_SHORT).show();
+            }
         });
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
-
-            if (id == R.id.nav_home)
-            {
-                startActivity(new Intent(EmployerHomeActivity.this, EmployerHomeActivity.class));
+            if (id == R.id.nav_home) {
+                startActivity(new Intent(this, EmployerHomeActivity.class));
                 return true;
-            }
-            else if(id == R.id.nav_activity)
-            {
-                startActivity(new Intent(EmployerHomeActivity.this, EmployerActivity.class));
+            } else if (id == R.id.nav_activity) {
+                startActivity(new Intent(this, EmployerActivity.class));
                 return true;
-
-            }
-            else if (id == R.id.nav_profile)
-            {
-                startActivity(new Intent(EmployerHomeActivity.this, EmployerProfileActivity.class));
+            } else if (id == R.id.nav_profile) {
+                startActivity(new Intent(this, EmployerProfileActivity.class));
                 return true;
             }
             return false;
         });
     }
 
-    private void updateEmployeeCard(String name) {
-        employeeName.setText(name);
-        employeeEmail.setText(name.toLowerCase() + "@trackcarbon.com");
-        employeeMiles.setText("900");
-        employeeCredits.setText("1000");
-        employeeTotal.setText("Total: 2000");
+    private void fetchApprovedEmployees() {
+        new Thread(() -> {
+            try {
+                URL url = new URL(BASE_URL + "/approved-employees");
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
 
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) response.append(line);
+                reader.close();
+
+                JSONObject json = new JSONObject(response.toString());
+                JSONArray data = json.getJSONArray("data");
+
+                ArrayList<String> employeeNames = new ArrayList<>();
+                ArrayList<Employee> employeeList = new ArrayList<>();
+
+                for (int i = 0; i < data.length(); i++) {
+                    JSONObject obj = data.getJSONObject(i);
+                    Employee emp = new Employee(
+                            obj.getInt("id"),
+                            obj.getString("f_name"),
+                            obj.getString("l_name"),
+                            obj.getString("email")
+                    );
+                    employeeList.add(emp);
+                    employeeNames.add(emp.f_name + " " + emp.l_name);
+                }
+
+                runOnUiThread(() -> {
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, employeeNames);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    employeeSpinner.setAdapter(adapter);
+
+                    if (!employeeList.isEmpty()) {
+                        selectedEmployee = employeeList.get(0);
+                        updateEmployeeCard(selectedEmployee);
+                        fetchStatsForEmployee(selectedEmployee.id);
+                    }
+
+                    employeeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            selectedEmployee = employeeList.get(position);
+                            updateEmployeeCard(selectedEmployee);
+                            fetchStatsForEmployee(selectedEmployee.id);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) { }
+                    });
+                });
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
+    private void updateEmployeeCard(Employee emp) {
+        employeeName.setText(emp.f_name + " " + emp.l_name);
+        employeeEmail.setText(emp.email);
+        employeeMiles.setText("Loading...");
+        employeeCredits.setText("Loading...");
         employeeImage.setImageResource(R.drawable.person_24);
     }
 
-    private void openBuySellModal() {
-        View modalView = LayoutInflater.from(this).inflate(R.layout.dialog_buy_sell_modal, null);
+    private void fetchStatsForEmployee(int employeeId) {
+        new Thread(() -> {
+            int miles = 0, credits = 0;
 
-        TextView modalTitle = modalView.findViewById(R.id.modalTitle);
-        TextView dropdownLabel = modalView.findViewById(R.id.dropdownLabel);
-        TextView quantityText = modalView.findViewById(R.id.quantityText);
-        Spinner partnerSpinner = modalView.findViewById(R.id.partnerSpinner);
-        ImageButton incrementBtn = modalView.findViewById(R.id.incrementBtn);
-        ImageButton decrementBtn = modalView.findViewById(R.id.decrementBtn);
-        Button cancelBtn = modalView.findViewById(R.id.cancelBtn);
-        Button checkoutBtn = modalView.findViewById(R.id.checkoutBtn);
+            try {
+                // Fetch miles
+                URL milesURL = new URL(BASE_URL + "/latest-miles/" + employeeId);
+                HttpURLConnection connMiles = (HttpURLConnection) milesURL.openConnection();
+                connMiles.setRequestMethod("GET");
 
-        modalTitle.setText(transactionType.equals("buy") ? "Buy Carbon Credits" : "Sell Carbon Credits");
-        dropdownLabel.setText(transactionType.equals("buy") ? "From" : "To");
+                BufferedReader readerMiles = new BufferedReader(new InputStreamReader(connMiles.getInputStream()));
+                StringBuilder milesResp = new StringBuilder();
+                String line;
+                while ((line = readerMiles.readLine()) != null) milesResp.append(line);
+                readerMiles.close();
 
-        quantityText.setText(String.valueOf(creditQuantity));
+                JSONObject milesJSON = new JSONObject(milesResp.toString());
+                if (milesJSON.has("data")) {
+                    miles = milesJSON.getJSONObject("data").optInt("miles", 0);
+                }
 
-        String[] partners = {"ABC", "XYZ", "SOS", "LOL", "SUM", "SUB", "MUL", "DIV", "BTS"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, partners);
-        partnerSpinner.setAdapter(adapter);
+                // Fetch credits
+                URL creditsURL = new URL(BASE_URL + "/latest-credits/" + employeeId);
+                HttpURLConnection connCredits = (HttpURLConnection) creditsURL.openConnection();
+                connCredits.setRequestMethod("GET");
 
-        AlertDialog dialog = new AlertDialog.Builder(this)
-                .setView(modalView)
-                .setCancelable(true)
-                .create();
+                BufferedReader readerCredits = new BufferedReader(new InputStreamReader(connCredits.getInputStream()));
+                StringBuilder creditsResp = new StringBuilder();
+                while ((line = readerCredits.readLine()) != null) creditsResp.append(line);
+                readerCredits.close();
 
-        incrementBtn.setOnClickListener(v -> {
-            creditQuantity++;
-            quantityText.setText(String.valueOf(creditQuantity));
-        });
+                JSONObject creditsJSON = new JSONObject(creditsResp.toString());
+                credits = creditsJSON.optInt("carbon_credits", 0);
 
-        decrementBtn.setOnClickListener(v -> {
-            if (creditQuantity > 1) {
-                creditQuantity--;
-                quantityText.setText(String.valueOf(creditQuantity));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        });
 
-        cancelBtn.setOnClickListener(v -> dialog.dismiss());
+            int finalMiles = miles;
+            int finalCredits = credits;
 
-        checkoutBtn.setOnClickListener(v -> {
-            dialog.dismiss();
-            showTransactionSummary(partnerSpinner.getSelectedItem().toString(), creditQuantity);
-        });
+            runOnUiThread(() -> {
+                employeeMiles.setText(String.valueOf(finalMiles));
+                employeeCredits.setText(String.valueOf(finalCredits));
+            });
 
-        dialog.show();
+        }).start();
     }
 
-    private void showTransactionSummary(String partner, int quantity) {
-        View modalView = LayoutInflater.from(this).inflate(R.layout.dialog_transaction_summary, null);
+    private void openBuySellModal() {
+        Toast.makeText(this, "Buy/Sell modal would use: " + selectedEmployee.f_name, Toast.LENGTH_SHORT).show();
+    }
 
-        TextView transactionTitle = modalView.findViewById(R.id.transactionTitle);
-        TextView txnNumber = modalView.findViewById(R.id.txnNumber);
-        TextView txnQuantity = modalView.findViewById(R.id.txnQuantity);
-        TextView txnPrice = modalView.findViewById(R.id.txnPrice);
-        TextView txnTo = modalView.findViewById(R.id.txnTo);
-        TextView txnTotal = modalView.findViewById(R.id.txnTotal);
-        Button okBtn = modalView.findViewById(R.id.txnOkBtn);
+    private static class Employee {
+        int id;
+        String f_name;
+        String l_name;
+        String email;
 
-        boolean isBuy = transactionType.equals("buy");
-        double unitPrice = isBuy ? 0.95 : 0.85;
-        double totalPrice = quantity * unitPrice;
-
-        transactionTitle.setText(isBuy ? "Purchase Transaction" : "Sales Transaction");
-        txnNumber.setText("Transaction No: " + (new Random().nextInt(900000) + 100000));
-        txnQuantity.setText("Quantity: " + quantity + " Carbon Credits");
-        txnPrice.setText("Price Traded: $" + String.format("%.2f", unitPrice) + " / 1 carbon credit");
-        txnTo.setText((isBuy ? "From" : "To") + ": " + partner);
-        txnTotal.setText("Total Price: $" + String.format("%.2f", totalPrice));
-
-        AlertDialog dialog = new AlertDialog.Builder(this)
-                .setView(modalView)
-                .setCancelable(true)
-                .create();
-
-        okBtn.setOnClickListener(v -> dialog.dismiss());
-        dialog.show();
+        Employee(int id, String f_name, String l_name, String email) {
+            this.id = id;
+            this.f_name = f_name;
+            this.l_name = l_name;
+            this.email = email;
+        }
     }
 }

@@ -126,6 +126,13 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(this, "Approval is needed before you can log in.", Toast.LENGTH_SHORT).show();
                             return;
                         }
+                        getSharedPreferences("CarboPrefs", MODE_PRIVATE).edit()
+                                .putInt("user_id", user.optInt("id"))
+                                .putString("first_name", user.optString("first_name"))
+                                .putString("last_name", user.optString("last_name"))
+                                .putString("email", user.optString("email"))
+                                .putString("role", user.optString("role"))
+                                .apply();
 
                         if (role.equalsIgnoreCase("employee")) {
                             startActivity(new Intent(LoginActivity.this, Employeedaily_Activity.class));
