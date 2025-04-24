@@ -89,7 +89,7 @@ aside .sidebar a {
 
 aside .sidebar a:last-child {
     position: absolute;
-    bottom: 15rem;
+    bottom: 10rem;
     width: 100%;
 }
 
@@ -195,6 +195,15 @@ td {
     border: none;
     border-radius: 6px;
     cursor: pointer;
+}
+
+.red-btn{
+    background-color: #ff6363;
+        color: white;
+        padding: 6px 14px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
 }
 
 .btn.secondary {

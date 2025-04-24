@@ -22,17 +22,21 @@
       <!--Sidebar Start-->
       <aside>
         <div class="sidebar">
-          <a href="http://127.0.0.1:5500/Web/user_manage.html"
+          <a href="http://127.0.0.1:5500/Web/employee_user_manage.html"
             ><span class="material-symbols-sharp">Supervised_User_Circle</span>
-            <h3>User Management</h3>
+            <h3>Employee Management</h3>
           </a>
             <a href="http://127.0.0.1:5500/Web/unapproved_employees.html"
             ><span class="material-symbols-sharp">Analytics</span>
-            <h3>Employee Approval Managment</h3>
+            <h3>Pending Employee Approvals</h3>
+          </a>
+          <a href="http://127.0.0.1:5500/Web/employer_user_manage.html"
+            ><span class="material-symbols-sharp">Supervised_User_Circle</span>
+            <h3>Employer Management</h3>
           </a>
           <a href="http://127.0.0.1:5500/Web/unapproved_employers.html"
             ><span class="material-symbols-sharp">Analytics</span>
-            <h3>Employer Approval Managment</h3>
+            <h3>Pending Employer Approvals</h3>
           </a>
           <a href="http://127.0.0.1:5500/Web/transaction.html"
             ><span class="material-symbols-sharp">Toll</span>
@@ -47,7 +51,7 @@
     
   <main>
     <div>
-      <h2>User Approval Management</h2>
+      <h2>Pending Employer Approvals</h2>
       <div>
         <!-- Breadcrumb -->
         <div>
@@ -77,6 +81,7 @@
               <th>Email</th>
               <th>Role</th>
               <th>Status</th>
+              <th></th>
             </tr>
           </thead>
           <tbody id="approvalTable">
@@ -116,10 +121,10 @@
         <td>${unappEmployer.role}</td>
         <td>${unappEmployer.status}</td>
         <div>
-                  <button onclick="changeStatus(this, 'Approved')">
+                  <button class="btn" onclick="changeStatus(this, 'Approved')">
                     Approve
                   </button>
-                  <button onclick="changeStatus(this, 'Rejected')">Deny</button>
+                  <button class="red-btn" onclick="changeStatus(this, 'Rejected')">Deny</button>
                 </div>
       `;
           tbody.appendChild(row);

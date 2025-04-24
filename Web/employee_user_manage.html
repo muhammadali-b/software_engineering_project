@@ -21,17 +21,21 @@
       <!--Sidebar Start-->
       <aside>
         <div class="sidebar">
-          <a href="http://127.0.0.1:5500/Web/user_manage.html"
+          <a href="http://127.0.0.1:5500/Web/employee_user_manage.html"
             ><span class="material-symbols-sharp">Supervised_User_Circle</span>
-            <h3>User Management</h3>
+            <h3>Employee Management</h3>
           </a>
             <a href="http://127.0.0.1:5500/Web/unapproved_employees.html"
             ><span class="material-symbols-sharp">Analytics</span>
-            <h3>Employee Approval Managment</h3>
+            <h3>Pending Employee Approvals</h3>
+          </a>
+          <a href="http://127.0.0.1:5500/Web/employer_user_manage.html"
+            ><span class="material-symbols-sharp">Supervised_User_Circle</span>
+            <h3>Employer Management</h3>
           </a>
           <a href="http://127.0.0.1:5500/Web/unapproved_employers.html"
             ><span class="material-symbols-sharp">Analytics</span>
-            <h3>Employer Approval Managment</h3>
+            <h3>Pending Employer Approvals</h3>
           </a>
           <a href="http://127.0.0.1:5500/Web/transaction.html"
             ><span class="material-symbols-sharp">Toll</span>
@@ -47,7 +51,7 @@
   <main>
     <!-- User Management Section -->
     <div id="userManagementView">
-      <h2>User Management</h2>
+      <h2>Employee User Management</h2>
       <div class="filters">
         <input type="text" id="search" placeholder="Search name or email" />
         <button class="btn" onclick="filterUsers()">Search</button>
@@ -56,7 +60,7 @@
       <table>
         <thead>
           <tr>
-            <th>ID</th>
+            <th>Employee ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
