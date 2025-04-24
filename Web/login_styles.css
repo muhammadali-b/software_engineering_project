@@ -1,0 +1,75 @@
+body,
+html {
+
+    font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    height: 100%;
+    margin: 0;
+    background-color: #eef3ec;
+}
+
+.top {
+    width: 200px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #f6f6f6;
+    overflow-x: hidden;
+    padding-top: 0px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    background-color: #3aad67;
+    padding: 5px 0;
+    margin-bottom: auto;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+}
+
+/* Flex container to center the login card */
+.login-wrapper {
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The login card itself */
+.login-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+}
+
+.login-card h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
