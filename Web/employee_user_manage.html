@@ -117,7 +117,9 @@
       const search = document.getElementById("search").value.toLowerCase();
 
       const filtered = users.filter(user =>
-        (user.name.toLowerCase().includes(search) || user.email.toLowerCase().includes(search))
+        (user.f_name.toLowerCase().includes(search) ||
+        user._name.toLowerCase().includes(search) || 
+        user.email.toLowerCase().includes(search))
       );
 
       renderUsers(filtered);

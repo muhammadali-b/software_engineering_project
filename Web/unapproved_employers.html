@@ -55,8 +55,8 @@
       <div>
         <!-- Breadcrumb -->
         <div>
-         <span><a href="user_manage.html">Home &gt;</a></span>
-          <span>Approval Management</span>
+         <span><a href="employee_user_manage.html">Home &gt;</a></span>
+          <span>Employer Approval Management</span>
         </div>
 
         <!-- Filter Section -->
@@ -68,7 +68,7 @@
             <option value="Approved">Approved</option>
             <option value="Rejected">Rejected</option>
           </select>
-          <button onclick="applyUserSearch()">Search</button>
+          <button onclick="applyEmployerSearch()">Search</button>
         </div>
 
         <!-- Table -->
@@ -81,7 +81,7 @@
               <th>Email</th>
               <th>Role</th>
               <th>Status</th>
-              <th></th>
+              <th class="last-col"></th>
             </tr>
           </thead>
           <tbody id="approvalTable">
@@ -133,12 +133,9 @@
 
     fetchUnapprovedEmployers()
 
-      function applyUserSearch() {
+      function applyEmployerSearch() {
         const searchInput = document
           .getElementById("searchNameEmail")
-          .value.toLowerCase();
-        const roleFilter = document
-          .getElementById("roleFilter")
           .value.toLowerCase();
         const statusFilter = document
           .getElementById("statusFilter")
@@ -147,27 +144,27 @@
         const rows = document.querySelectorAll("#approvalTable tr");
         rows.forEach((row) => {
           const cells = row.querySelectorAll("td");
-          const [name, email, role, status] = [...cells].map((cell) =>
+          const [f_name, l_name, email, role, status] = [...cells].map((cell) =>
             cell.textContent.toLowerCase()
           );
 
           const matchesSearch =
             !searchInput ||
-            name.includes(searchInput) ||
+            f_name.includes(searchInput) ||
+            l_name.includes(searchInput) ||
             email.includes(searchInput);
-          const matchesRole = !roleFilter || role.includes(roleFilter);
           const matchesStatus = !statusFilter || status.includes(statusFilter);
 
           row.style.display =
-            matchesSearch && matchesRole && matchesStatus ? "" : "none";
+            matchesSearch ? "" : "none";
         });
       }
 
-      function changeStatus(button, newStatus) {
+      function changeEmployerStatus(button, newStatus) {
         const row = button.closest("tr");
-  const employeeId = row.children[0].textContent;
+  const employerId = row.children[0].textContent;
 
-  const endpoint = `https://softwareengineeringproject-production.up.railway.app/api/approved-employers/${employeeId}`;
+  const endpoint = `https://softwareengineeringproject-production.up.railway.app/api/approve-employer/${employerId}`;
 
   fetch(endpoint, {
     method: "PATCH",

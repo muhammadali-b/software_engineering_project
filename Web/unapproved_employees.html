@@ -55,8 +55,8 @@
       <div>
         <!-- Breadcrumb -->
         <div>
-         <span><a href="user_manage.html">Home &gt;</a></span>
-          <span>Approval Management</span>
+         <span><a href="employee_user_manage.html">Home &gt;</a></span>
+          <span>Employee Approval Management</span>
         </div>
 
         <!-- Filter Section -->
@@ -135,9 +135,6 @@
         const searchInput = document
           .getElementById("searchNameEmail")
           .value.toLowerCase();
-        const roleFilter = document
-          .getElementById("roleFilter")
-          .value.toLowerCase();
         const statusFilter = document
           .getElementById("statusFilter")
           .value.toLowerCase();
@@ -145,19 +142,19 @@
         const rows = document.querySelectorAll("#approvalTable tr");
         rows.forEach((row) => {
           const cells = row.querySelectorAll("td");
-          const [name, email, role, status] = [...cells].map((cell) =>
+          const [f_name, l_name, email, role, status] = [...cells].map((cell) =>
             cell.textContent.toLowerCase()
           );
 
           const matchesSearch =
             !searchInput ||
-            name.includes(searchInput) ||
+            f_name.includes(searchInput) ||
+            l_name.includes(searchInput) ||
             email.includes(searchInput);
-          const matchesRole = !roleFilter || role.includes(roleFilter);
           const matchesStatus = !statusFilter || status.includes(statusFilter);
 
           row.style.display =
-            matchesSearch && matchesRole && matchesStatus ? "" : "none";
+            matchesSearch ? "" : "none";
         });
       }
 
@@ -180,7 +177,7 @@
     })
     .then((data) => {
       console.log("Status updated:", data);
-      row.children[4].textContent = newStatus; // Update status cell
+      row.children[5].textContent = newStatus; // Update status cell
     })
     .catch((err) => {
       console.error("Error approving employee:", err);
