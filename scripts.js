@@ -20,7 +20,7 @@
       if (response.ok) {
         console.log('Login successful:', result);
 
-        window.location.href = 'software_engineering_project/employee_user_manage.html';
+        window.location.href = 'employee_user_manage.html';
       } else {
         alert(result.message || 'Invalid email or password.');
       }
