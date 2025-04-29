@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Calendar;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
@@ -46,21 +47,27 @@ public class Employeedaily_Activity extends AppCompatActivity {
 
         lineChart = findViewById(R.id.lineChart);
         dateTextView = findViewById(R.id.dateTextView);
-        milesValueText = findViewById(R.id.milesValueText);
+        milesValueText = findViewById(R.id.milesUnitText);
         total_carbon_credits = findViewById(R.id.total_carbon_credits);
         monthDropdown = findViewById(R.id.monthDropdown);
         weekDropdown = findViewById(R.id.weekDropdown);
+
+        String currentDay = new SimpleDateFormat("EEE, MMM d", Locale.US).format(new Date());
+        dateTextView.setText(currentDay);
 
         ArrayAdapter<String> monthAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, currentMonth);
         monthDropdown.setAdapter(monthAdapter);
         monthDropdown.setText(currentMonth[0], false);
         monthDropdown.setEnabled(true);
 
+        int currentWeek = getCurrentWeek();
         ArrayAdapter<String> weekAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, weeks);
         weekDropdown.setAdapter(weekAdapter);
-        weekDropdown.setOnItemClickListener((parent, view, position, id) -> {
-            weekly_graphData(position + 1);
-        });
+        weekDropdown.setText(weeks[currentWeek - 1], false);
+        weekDropdown.setEnabled(false);
+
+        // Here we are setting up the graph
+        setupGraph();
 
         loadDailyData();
 
@@ -78,11 +85,36 @@ public class Employeedaily_Activity extends AppCompatActivity {
             }
             return false;
         });
+
+    }
+
+    private int getCurrentWeek() {
+        Calendar calendar = Calendar.getInstance();
+        return calendar.get(Calendar.WEEK_OF_MONTH);
+    }
+
+    private void setupGraph() {
+        ArrayList<Entry> entries = new ArrayList<>();
+
+        // Here we are creating values corresponding to days between Sat to Fri
+        for (int i = 0; i < 7; i++)
+        {
+            entries.add(new Entry(i, 0));
+        }
+
+        LineDataSet dataSet = new LineDataSet(entries, "Miles / Carbon Credits");
+        dataSet.setLineWidth(2f);
+        dataSet.setCircleRadius(4f);
+        dataSet.setDrawValues(false);
+
+        LineData lineData = new LineData(dataSet);
+        lineChart.setData(lineData);
+        lineChart.getDescription().setEnabled(false);
+        lineChart.getAxisRight().setEnabled(false);
+        lineChart.invalidate();
     }
 
     private void loadDailyData() {
-        String currentDay = new SimpleDateFormat("EEE, MMM d", Locale.US).format(new Date());
-        dateTextView.setText(currentDay);
 
         int employeeId = getSharedPreferences("CarboPrefs", MODE_PRIVATE).getInt("user_id", -1);
         if (employeeId == -1) return;
@@ -120,10 +152,10 @@ public class Employeedaily_Activity extends AppCompatActivity {
                 int miles = dataObject.optInt("miles", 0);
 
                 new Handler(Looper.getMainLooper()).post(() -> {
-                    int m = miles;
-                    int cc = credits;
-                    milesValueText.setText(String.valueOf(miles));
+                    milesValueText.setText(miles + " Miles");
                     total_carbon_credits.setText("Total Carbon Credits: " + credits);
+
+                    updateGraph(miles, credits);
                 });
 
             } catch (Exception e) {
@@ -132,17 +164,27 @@ public class Employeedaily_Activity extends AppCompatActivity {
         }).start();
     }
 
-    private void weekly_graphData(int weekNumber) {
+    private void updateGraph(int miles, int credits) {
         ArrayList<Entry> entries = new ArrayList<>();
-        entries.add(new Entry(0, 100 * weekNumber));
-        entries.add(new Entry(1, 50 * weekNumber));
-        entries.add(new Entry(2, 200 * weekNumber));
-        entries.add(new Entry(3, 20 * weekNumber));
-        entries.add(new Entry(4, 300 * weekNumber));
-        entries.add(new Entry(5, 30 * weekNumber));
-        entries.add(new Entry(6, 400 * weekNumber));
 
-        LineDataSet dataSet = new LineDataSet(entries, "Miles / Carbon Credits (Week " + weekNumber + ")");
+        Calendar calendar = Calendar.getInstance();
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+        int[] day_mapping = {6, 0, 1, 2, 3, 4, 5};
+
+        for (int i = 0; i < 7; i++)
+        {
+            if (i == day_mapping[dayOfWeek - 1])
+            {
+                entries.add(new Entry(i, miles + credits));
+            }
+            else
+            {
+                entries.add(new Entry(i, 0));
+            }
+        }
+
+        LineDataSet dataSet = new LineDataSet(entries, "Miles + Carbon Credits");
         dataSet.setLineWidth(2f);
         dataSet.setCircleRadius(4f);
         dataSet.setDrawValues(false);
@@ -150,6 +192,7 @@ public class Employeedaily_Activity extends AppCompatActivity {
         LineData lineData = new LineData(dataSet);
         lineChart.setData(lineData);
         lineChart.getDescription().setEnabled(false);
+        lineChart.getAxisRight().setEnabled(false);
         lineChart.invalidate();
     }
 }
