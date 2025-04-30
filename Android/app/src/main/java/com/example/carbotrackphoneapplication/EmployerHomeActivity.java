@@ -1,3 +1,4 @@
+// This is the java code written for the functionalites of the employer homepage. 
 package com.example.carbotrackphoneapplication;
 
 import android.app.AlertDialog;
@@ -219,10 +220,10 @@ public class EmployerHomeActivity extends AppCompatActivity {
         modalTitle.setText(transactionType.equals("buy") ? "Buy Carbon Credits" : "Sell Carbon Credits");
         dropdownLabel.setText(transactionType.equals("buy") ? "From" : "To");
 
-        int[] creditQuantity = {15}; // Mutable wrapper to use in inner class
+        int[] creditQuantity = {15}; 
         quantityText.setText(String.valueOf(creditQuantity[0]));
 
-        String[] partners = {"ABC", "XYZ", "SOS", "LOL", "SUM", "SUB", "MUL", "DIV", "BTS"};
+        String[] partners = {"Carbon Credit Bank", "New Employer"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, partners);
         partnerSpinner.setAdapter(adapter);
 
