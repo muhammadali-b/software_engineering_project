@@ -1,3 +1,4 @@
+// Here is the java code for the employee homepage.
 package com.example.carbotrackphoneapplication;
 
 import android.os.Bundle;
@@ -117,13 +118,16 @@ public class Employeedaily_Activity extends AppCompatActivity {
     private void loadDailyData() {
 
         int employeeId = getSharedPreferences("CarboPrefs", MODE_PRIVATE).getInt("user_id", -1);
-        if (employeeId == -1) return;
+        if (employeeId == -1) 
+        {
+            return;
+        }
 
         String baseUrl = "https://softwareengineeringproject-production.up.railway.app/api";
 
         new Thread(() -> {
             try {
-                // Fetch carbon credits
+                // Here is where we are getting the carbon credits accumulated by the employee for the employee homepage
                 URL urlCredits = new URL(baseUrl + "/latest-credits/" + employeeId);
                 HttpURLConnection connCredits = (HttpURLConnection) urlCredits.openConnection();
                 connCredits.setRequestMethod("GET");
@@ -137,7 +141,7 @@ public class Employeedaily_Activity extends AppCompatActivity {
                 JSONObject jsonCredits = new JSONObject(responseCredits.toString());
                 int credits = jsonCredits.optInt("carbon_credits", 0);
 
-                // Fetch miles
+                // Here is where we are getting the total miles accumulated by the employee for the employee homepage.
                 URL urlMiles = new URL(baseUrl + "/latest-miles/" + employeeId);
                 HttpURLConnection connMiles = (HttpURLConnection) urlMiles.openConnection();
                 connMiles.setRequestMethod("GET");
