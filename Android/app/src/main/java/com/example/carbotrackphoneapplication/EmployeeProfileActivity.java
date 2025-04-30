@@ -1,3 +1,4 @@
+// Here is the java code for the employee profile page.
 package com.example.carbotrackphoneapplication;
 
 import android.app.AlertDialog;
@@ -37,6 +38,8 @@ public class EmployeeProfileActivity extends AppCompatActivity {
 
     ImageView profileImageView;
     TextView userName, userEmail;
+
+    private String employeeEmail = "";
 
     String apiURL = "https://softwareengineeringproject-production.up.railway.app/api/change-password";
 
@@ -94,45 +97,27 @@ public class EmployeeProfileActivity extends AppCompatActivity {
     }
 
     private void fetchEmployeeInfo() {
-        new Thread(() -> {
-            try {
-                SharedPreferences prefs = getSharedPreferences("CarboTrackPrefs", MODE_PRIVATE);
-                int employeeId = prefs.getInt("employee_id", -1);
-                if (employeeId == -1) return;
 
-                URL url = new URL("https://softwareengineeringproject-production.up.railway.app/api/approved-employees");
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("GET");
+        SharedPreferences prefs = getSharedPreferences("CarboPrefs", MODE_PRIVATE);
 
-                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                StringBuilder jsonResponse = new StringBuilder();
-                String line;
-                while ((line = in.readLine()) != null) jsonResponse.append(line);
-                in.close();
+        String firstName = prefs.getString("first_name", null);
+        String lastName = prefs.getString("last_name", null);
+        String email = prefs.getString("email", null);
 
-                JSONObject response = new JSONObject(jsonResponse.toString());
-                JSONArray employees = response.getJSONArray("data");
+        if (firstName != null && lastName != null && email != null)
+        {
+            String fullName = firstName + " " + lastName;
+            employeeEmail = email;
 
-                for (int i = 0; i < employees.length(); i++) {
-                    JSONObject emp = employees.getJSONObject(i);
-                    if (emp.getInt("id") == employeeId) {
-                        String fullName = emp.getString("f_name") + " " + emp.getString("l_name");
-                        String email = emp.getString("email");
+            userName.setText(fullName);
+            userEmail.setText(email);
+        }
+        else
+        {
+            Toast.makeText(this,"Failed to get employee information.", Toast.LENGTH_SHORT).show();
+        }
 
-                        runOnUiThread(() -> {
-                            userName.setText(fullName);
-                            userEmail.setText(email);
-                        });
-                        break;
-                    }
-                }
 
-            } catch (Exception e) {
-                Log.e("ProfileError", "Error fetching info: " + e.getMessage());
-                runOnUiThread(() ->
-                        Toast.makeText(this, "Failed to fetch profile info.", Toast.LENGTH_SHORT).show());
-            }
-        }).start();
     }
 
 
@@ -195,7 +180,7 @@ public class EmployeeProfileActivity extends AppCompatActivity {
         Button saveBtn = modalView.findViewById(R.id.savePasswordBtn);
         saveBtn.setOnClickListener(v -> {
 
-            // Here is a check to make sure that the password the emploee enters is valid
+            // Here is a check to make sure that the password the employee enters is valid
             if (validatePassword(currentPass, newPass, repeatPass))
             {
                 String oldPassword = currentPass.getText().toString();
