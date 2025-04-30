@@ -7,7 +7,6 @@
     android:padding="24dp"
     android:background="@drawable/rounded_background">
 
-    <!-- Modal Title -->
     <TextView
         android:id="@+id/modalTitle"
         android:layout_width="wrap_content"
@@ -17,7 +16,6 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    <!-- Quantity Control -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,7 +53,6 @@
             android:contentDescription="Increase" />
     </LinearLayout>
 
-    <!-- From / To Label -->
     <TextView
         android:id="@+id/dropdownLabel"
         android:layout_width="wrap_content"
@@ -65,7 +62,6 @@
         android:textSize="14sp"
         android:layout_marginTop="16dp" />
 
-    <!-- Partner Spinner -->
     <Spinner
         android:id="@+id/partnerSpinner"
         android:layout_width="match_parent"
@@ -74,7 +70,6 @@
         android:layout_marginTop="8dp"
         android:padding="8dp"/>
 
-    <!-- Modal Action Buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

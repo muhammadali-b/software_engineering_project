@@ -1,3 +1,4 @@
+// Here is the java code for the initial travel page for the employee.
 package com.example.carbotrackphoneapplication;
 
 import android.Manifest;

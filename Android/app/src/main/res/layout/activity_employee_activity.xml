@@ -25,7 +25,6 @@
         app:layout_constraintBottom_toBottomOf="@id/header_background"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Options Card -->
     <androidx.cardview.widget.CardView
         android:id="@+id/employerOptionsCard"
         android:layout_width="0dp"
@@ -44,7 +43,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Employee Approval -->
             <LinearLayout
                 android:id="@+id/employeeApprovalBtn"
                 android:layout_width="match_parent"
@@ -75,7 +73,6 @@
                     android:tint="#B0B0B0"/>
             </LinearLayout>
 
-            <!-- Payment -->
             <LinearLayout
                 android:id="@+id/paymentBtn"
                 android:layout_width="match_parent"
@@ -106,7 +103,6 @@
                     android:tint="#B0B0B0"/>
             </LinearLayout>
 
-            <!-- Trading -->
             <LinearLayout
                 android:id="@+id/tradingBtn"
                 android:layout_width="match_parent"

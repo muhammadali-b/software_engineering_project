@@ -1,10 +1,10 @@
+// This java code is used for the approval or denial of an employee after registration.
 package com.example.carbotrackphoneapplication;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,9 +15,14 @@ import java.util.List;
 public class ApprovalAdapter extends RecyclerView.Adapter<ApprovalAdapter.ViewHolder> {
 
     List<EmployeeApprovalActivity.Employee> employeeList;
+    private OnApproveListener approveListener;
 
     public ApprovalAdapter(List<EmployeeApprovalActivity.Employee> employeeList) {
         this.employeeList = employeeList;
+    }
+
+    public void setOnApproveListener(OnApproveListener listener) {
+        this.approveListener = listener;
     }
 
     @NonNull
@@ -33,12 +38,28 @@ public class ApprovalAdapter extends RecyclerView.Adapter<ApprovalAdapter.ViewHo
         EmployeeApprovalActivity.Employee employee = employeeList.get(position);
         holder.name.setText(employee.name);
         holder.email.setText(employee.email);
-        holder.time.setText(employee.time);
+        holder.time.setVisibility(View.GONE); // hide time
+        holder.denyBtn.setVisibility(View.GONE); // hide deny
+
+        holder.approveBtn.setOnClickListener(v -> {
+            if (approveListener != null) {
+                approveListener.onApprove(employee.id, holder.getAdapterPosition());
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return employeeList.size();
+    }
+
+    public void removeAt(int position) {
+        employeeList.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public interface OnApproveListener {
+        void onApprove(int employeeId, int position);
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

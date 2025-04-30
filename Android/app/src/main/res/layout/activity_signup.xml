@@ -7,14 +7,12 @@
     android:layout_height="match_parent"
     android:background="@color/black">
 
-    <!-- Background image -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="512dp"
         android:scaleType="centerCrop"
         android:src="@drawable/signup_bg" />
 
-    <!-- White signup form container -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="565dp"
@@ -25,7 +23,6 @@
         android:orientation="vertical"
         android:padding="24dp">
 
-        <!-- "Sign Up" Header -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +33,6 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <!-- Role Selection Dropdown (now hardcoded) -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="360dp"
             android:layout_height="wrap_content"
@@ -51,19 +47,16 @@
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- First Name -->
         <LinearLayout style="@style/InputField" android:layout_marginBottom="10dp">
             <ImageView style="@style/InputIcon" android:src="@drawable/baseline_account_circle_24" />
             <EditText android:id="@+id/etfirstName" style="@style/InputText" android:hint="First Name" />
         </LinearLayout>
 
-        <!-- Last Name -->
         <LinearLayout style="@style/InputField" android:layout_marginBottom="10dp">
             <ImageView style="@style/InputIcon" android:src="@drawable/baseline_account_circle_24" />
             <EditText android:id="@+id/etlastName" style="@style/InputText" android:hint="Last Name" />
         </LinearLayout>
 
-        <!-- Email -->
         <LinearLayout style="@style/InputField" android:layout_marginBottom="10dp">
             <ImageView style="@style/InputIcon" android:src="@android:drawable/ic_dialog_email" />
             <EditText
@@ -73,7 +66,6 @@
                 android:inputType="textEmailAddress" />
         </LinearLayout>
 
-        <!-- Password -->
         <LinearLayout style="@style/InputField" android:layout_marginBottom="10dp">
             <ImageView style="@style/InputIcon" android:src="@android:drawable/ic_lock_lock" />
             <EditText
@@ -87,7 +79,6 @@
                 android:src="@drawable/ic_eye_closed" />
         </LinearLayout>
 
-        <!-- Confirm Password -->
         <LinearLayout style="@style/InputField" android:layout_marginBottom="15dp">
             <ImageView style="@style/InputIcon" android:src="@android:drawable/ic_lock_lock" />
             <EditText
@@ -101,7 +92,6 @@
                 android:src="@drawable/ic_eye_closed" />
         </LinearLayout>
 
-        <!-- Sign Up Button -->
         <Button
             android:id="@+id/btnSignUp"
             android:layout_width="327dp"
@@ -113,7 +103,6 @@
             android:textColor="@android:color/white"
             android:textStyle="bold" />
 
-        <!-- Already have an account? -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

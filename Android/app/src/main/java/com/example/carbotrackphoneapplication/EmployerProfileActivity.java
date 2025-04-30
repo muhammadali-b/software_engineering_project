@@ -1,3 +1,4 @@
+// Here is the java code for the employer profile page.
 package com.example.carbotrackphoneapplication;
 
 import android.app.AlertDialog;
@@ -41,6 +42,8 @@ public class EmployerProfileActivity extends AppCompatActivity {
     ImageView profileImageView;
     private String employerEmail = "";
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,13 +56,21 @@ public class EmployerProfileActivity extends AppCompatActivity {
         profileImageView = findViewById(R.id.profileImageView);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.employer_bottom_navigation);
+
+        // Here we are making sure that when a user is on a page from clicking it on the navigation bar, that page stays highlighted.
         bottomNavigationView.setSelectedItemId(R.id.nav_profile);
+
+
 
         changePasswordBtn.setOnClickListener(view -> openChangePasswordModal());
 
+        // Here we are loading the profile image if it was saved
         loadSavedProfileImage();
-        fetchEmployerInfo();  // pulls email and updates profile
 
+        // Here is where we are the the information of the employer for the profile page.
+        fetchEmployerInfo();
+
+        // Here is where users are able to choose a profile image
         profileImageView.setOnClickListener(view -> {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(intent, PICK_IMAGE_REQUEST);
@@ -67,19 +78,28 @@ public class EmployerProfileActivity extends AppCompatActivity {
 
         logoutBtn.setOnClickListener(v -> {
             Toast.makeText(this, "Logged out successfully.", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, OnboardingActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            Intent intent = new Intent(EmployerProfileActivity.this, OnboardingActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // clears back stack
             startActivity(intent);
-            finish();
+            finish(); // finish current activity
         });
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
-            if (id == R.id.nav_home) {
-                startActivity(new Intent(this, EmployerHomeActivity.class));
+
+            if (id == R.id.nav_home)
+            {
+                startActivity(new Intent(EmployerProfileActivity.this, EmployerHomeActivity.class));
                 return true;
-            } else if (id == R.id.nav_activity) {
-                startActivity(new Intent(this, EmployerActivity.class));
+            }
+            else if(id == R.id.nav_activity)
+            {
+                startActivity(new Intent(EmployerProfileActivity.this, EmployerActivity.class));
+                return true;
+
+            }
+            else if (id == R.id.nav_profile)
+            {
                 return true;
             }
             return false;
@@ -108,16 +128,12 @@ public class EmployerProfileActivity extends AppCompatActivity {
 
         Button saveBtn = modalView.findViewById(R.id.savePasswordBtn);
         saveBtn.setOnClickListener(v -> {
-            if (validatePassword(currentPass, newPass, repeatPass)) {
+
+            // Here is a check to make sure that the password the emploee enters is valid
+            if (validatePassword(currentPass, newPass, repeatPass))
+            {
                 String oldPassword = currentPass.getText().toString();
                 String newPassword = newPass.getText().toString();
-
-                // fallback if email wasn't pulled
-                if (employerEmail.isEmpty()) {
-                    employerEmail = getSharedPreferences("CarboTrackPrefs", MODE_PRIVATE)
-                            .getString("email", "");
-                }
-
                 String email = employerEmail;
 
                 new Thread(() -> {
@@ -143,14 +159,21 @@ public class EmployerProfileActivity extends AppCompatActivity {
                         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
                         StringBuilder result = new StringBuilder();
                         String line;
-                        while ((line = reader.readLine()) != null) result.append(line);
+                        while ((line = reader.readLine()) != null)
+                        {
+                            result.append(line);
+                        }
                         reader.close();
 
                         runOnUiThread(() -> {
-                            if (code == 200 || code == 201) {
+                            if (code == 200 || code == 201)
+                            {
                                 Toast.makeText(this, "Password was changed successfully!", Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
-                            } else {
+
+                            }
+                            else
+                            {
                                 Toast.makeText(this, "Please try again. Failed to change password.", Toast.LENGTH_SHORT).show();
                             }
                         });
@@ -163,7 +186,10 @@ public class EmployerProfileActivity extends AppCompatActivity {
                     }
 
                 }).start();
+
             }
+
+
         });
 
         dialog.show();
@@ -173,10 +199,10 @@ public class EmployerProfileActivity extends AppCompatActivity {
         toggleIcon.setOnClickListener(view -> {
             if (passwordField.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
                 passwordField.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                toggleIcon.setImageResource(R.drawable.ic_eye_closed);
+                toggleIcon.setImageResource(R.drawable.ic_eye_closed); // closed eye icon
             } else {
                 passwordField.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                toggleIcon.setImageResource(R.drawable.ic_eye_open);
+                toggleIcon.setImageResource(R.drawable.ic_eye_open); // open eye icon
             }
             passwordField.setSelection(passwordField.getText().length());
         });
@@ -205,48 +231,30 @@ public class EmployerProfileActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Here is where we are getting the name and email of the employer to display on the employer homepage
+     */
     private void fetchEmployerInfo() {
-        new Thread(() -> {
-            try {
-                SharedPreferences prefs = getSharedPreferences("CarboTrackPrefs", MODE_PRIVATE);
-                int employerId = prefs.getInt("employer_id", -1);
-                if (employerId == -1) {
-                    Log.e("EmployerProfile", "No employer_id found in SharedPreferences");
-                    return;
-                }
+        SharedPreferences prefs = getSharedPreferences("CarboPrefs", MODE_PRIVATE);
 
-                URL url = new URL("https://softwareengineeringproject-production.up.railway.app/api/approved-employers/" + employerId);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("GET");
+        String firstName = prefs.getString("first_name", null);
+        String lastName = prefs.getString("last_name", null);
+        String email = prefs.getString("email", null);
 
-                int code = conn.getResponseCode();
-                InputStream is = (code >= 200 && code < 300) ? conn.getInputStream() : conn.getErrorStream();
+        if (firstName != null && lastName != null && email != null)
+        {
+            String fullName = firstName + " " + lastName;
+            employerEmail = email;
 
-                BufferedReader in = new BufferedReader(new InputStreamReader(is));
-                StringBuilder jsonResponse = new StringBuilder();
-                String line;
-                while ((line = in.readLine()) != null) jsonResponse.append(line);
-                in.close();
+            userName.setText(fullName);
+            userEmail.setText(email);
+        }
+        else
+        {
+            Toast.makeText(this, "Failed to display employer information", Toast.LENGTH_SHORT).show();
+        }
 
-                JSONObject emp = new JSONObject(jsonResponse.toString());
-
-                String fullName = emp.getString("f_name") + " " + emp.getString("l_name");
-                this.employerEmail = emp.getString("email");
-
-                runOnUiThread(() -> {
-                    userName.setText(fullName);
-                    userEmail.setText(employerEmail);
-                });
-
-            } catch (Exception e) {
-                Log.e("EmployerProfile", "Error fetching info: " + e.getMessage());
-                runOnUiThread(() ->
-                        Toast.makeText(this, "Failed to fetch profile info.", Toast.LENGTH_SHORT).show());
-            }
-        }).start();
     }
-
-
 
     private void loadSavedProfileImage() {
         SharedPreferences prefs = getSharedPreferences("CarboTrackPrefs", MODE_PRIVATE);
@@ -284,3 +292,8 @@ public class EmployerProfileActivity extends AppCompatActivity {
         }
     }
 }
+
+
+
+
+

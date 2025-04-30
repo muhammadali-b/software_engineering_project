@@ -1,6 +1,5 @@
+//Here is the java code for the page where the employee will choose their transportaion method they will choose to use to travel to their destination.
 package com.example.carbotrackphoneapplication;
-
-//Java code for the plan your ride page.
 
 import android.Manifest;
 import android.content.Intent;

@@ -1,3 +1,4 @@
+// Here is the java code for the employer trading page.
 package com.example.carbotrackphoneapplication;
 
 import android.os.Bundle;
@@ -22,16 +23,17 @@ public class EmployerTradingActivity extends AppCompatActivity {
         ImageView backArrow = findViewById(R.id.back_button);
         backArrow.setOnClickListener(v -> finish());
 
-        loadTradeCards();
+        loadTrades();
     }
 
-    private void loadTradeCards() {
+    private void loadTrades() {
         String[][] trades = {
-                {"ABCXYZ", "abcxyz@gmail.com", "Mar 30 · 2:00 PM", "120cc", "$5/1cc", "$100"},
-                {"ABCXYZ", "abcxyz@gmail.com", "Mar 30 · 2:00 PM", "120cc", "$5/1cc", "$100"}
+                {"trade1", "test@example.com", "Mar 30 . 2:00 PM", "120cc", "$5/1cc", "$100"},
+                {"trade2", "test@example.com", "Apr 2 . 5:00 PM", "130cc", "$10/2cc", "$250"}
         };
 
-        for (String[] trade : trades) {
+        for (String[] trade : trades)
+        {
             View card = LayoutInflater.from(this).inflate(R.layout.item_trade_card, tradeContainer, false);
 
             ((TextView) card.findViewById(R.id.name)).setText(trade[0]);
@@ -42,6 +44,9 @@ public class EmployerTradingActivity extends AppCompatActivity {
             ((TextView) card.findViewById(R.id.amount)).setText(trade[5]);
 
             tradeContainer.addView(card);
+
         }
     }
+
 }
+

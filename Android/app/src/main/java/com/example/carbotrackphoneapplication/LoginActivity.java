@@ -1,3 +1,4 @@
+// Here is the java code for the login page of the application.
 package com.example.carbotrackphoneapplication;
 
 import android.app.AlertDialog;
@@ -124,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                         String emailFromServer = user.optString("email", "");
                         int employeeid = user.optInt("id", -1);
                         int employerid = user.optInt("id", -1);
-                        boolean isApproved = true; // Replace with user.optBoolean("approved", false) if available
+                        boolean isApproved = true; 
 
                         // Here we are getting the employee id after logging in
                         getSharedPreferences("role", MODE_PRIVATE).edit().putInt("employee_id", employeeid);
@@ -161,14 +162,13 @@ public class LoginActivity extends AppCompatActivity {
         }).start();
     }
 
-    // 🔐 Forgot Password Modal
     private void openForgotPasswordModal() {
         View modalView = LayoutInflater.from(this).inflate(R.layout.forget_password, null);
 
-        EditText currentPass = modalView.findViewById(R.id.currentPassword); // Will be hidden
+        EditText currentPass = modalView.findViewById(R.id.currentPassword); 
         EditText newPass = modalView.findViewById(R.id.newPassword);
         EditText repeatPass = modalView.findViewById(R.id.repeatPassword);
-        ImageView toggleEye1 = modalView.findViewById(R.id.toggleEye1); // Will be hidden
+        ImageView toggleEye1 = modalView.findViewById(R.id.toggleEye1); 
         ImageView toggleEye2 = modalView.findViewById(R.id.toggleEye2);
         ImageView toggleEye3 = modalView.findViewById(R.id.toggleEye3);
         ImageView backArrow = modalView.findViewById(R.id.backArrow);

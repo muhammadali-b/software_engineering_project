@@ -1,6 +1,6 @@
+// Here is the Java code for the travel process page.
 package com.example.carbotrackphoneapplication;
 
-// Here is the Java code for the travel process page
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;

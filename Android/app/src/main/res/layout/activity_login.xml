@@ -7,14 +7,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Background image -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/login_bg" />
 
-    <!-- White bottom container -->
+   
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +22,7 @@
         android:background="@drawable/rounded_background"
         android:padding="40dp">
 
-        <!-- Login title -->
+        
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,7 +33,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="15dp" />
 
-        <!-- Email field -->
+        
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,7 +64,7 @@
                 android:textColor="@android:color/black" />
         </LinearLayout>
 
-        <!-- Password field -->
+        
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -105,7 +104,7 @@
                 android:focusable="true" />
         </LinearLayout>
 
-        <!-- Forgot Password -->
+
         <TextView
             android:id="@+id/txt_forgot_password"
             android:layout_width="wrap_content"
@@ -118,7 +117,6 @@
             android:clickable="true"
             android:focusable="true" />
 
-        <!-- Login Button -->
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
@@ -129,7 +127,6 @@
             android:textColor="@android:color/white"
             android:layout_marginTop="20dp" />
 
-        <!-- Sign Up Prompt -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

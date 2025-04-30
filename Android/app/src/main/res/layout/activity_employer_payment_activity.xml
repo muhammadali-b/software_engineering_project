@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#F8FAF9">
 
-    <!-- Header -->
     <LinearLayout
         android:id="@+id/header_background"
         android:layout_width="0dp"
@@ -36,7 +35,6 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Balance Card -->
     <LinearLayout
         android:id="@+id/balanceCard"
         android:layout_width="0dp"
@@ -70,7 +68,6 @@
             android:layout_marginTop="4dp" />
     </LinearLayout>
 
-    <!-- Payment Activity Label -->
     <TextView
         android:id="@+id/paymentActivityLabel"
         android:layout_width="wrap_content"
@@ -83,7 +80,6 @@
         app:layout_constraintTop_toBottomOf="@id/balanceCard"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Sell / Purchase Buttons -->
     <LinearLayout
         android:id="@+id/buttonContainer"
         android:layout_width="0dp"
@@ -121,7 +117,6 @@
             android:paddingHorizontal="20dp" />
     </LinearLayout>
 
-    <!-- Payment History -->
     <LinearLayout
         android:id="@+id/paymentHistoryContainer"
         android:layout_width="0dp"

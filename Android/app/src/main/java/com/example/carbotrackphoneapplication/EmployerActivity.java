@@ -1,3 +1,4 @@
+// This is the java code that lets the employer navigate using the bottom navigation bar to either thier homepage or profile page.
 package com.example.carbotrackphoneapplication;
 
 import android.content.Intent;
