@@ -35,7 +35,7 @@
 
                 <TextView
                     android:id="@+id/name"
-                    android:text="ABCXYZ"
+                    android:text=""
                     android:textStyle="bold"
                     android:textSize="14sp"
                     android:textColor="#000000"
@@ -44,7 +44,7 @@
 
                 <TextView
                     android:id="@+id/email"
-                    android:text="abczyx@gmail.com"
+                    android:text=""
                     android:textSize="12sp"
                     android:textColor="#6B7280"
                     android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
 
                 <TextView
                     android:id="@+id/time"
-                    android:text="Mar 30 · 2:00 PM"
+                    android:text=""
                     android:textSize="10sp"
                     android:textColor="#9CA3AF"
                     android:layout_width="wrap_content"
@@ -60,7 +60,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"

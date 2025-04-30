@@ -10,17 +10,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -66,9 +64,6 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(onboardingIntent);
         });
 
-
-        TextView txtForgotPassword = findViewById(R.id.txt_forgot_password);
-        txtForgotPassword.setOnClickListener(view -> openForgotPasswordModal());
 
         imgTogglePassword.setOnClickListener(view -> {
             if (etPassword.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
@@ -122,21 +117,21 @@ public class LoginActivity extends AppCompatActivity {
                         }
 
                         String role = user.optString("role", "");
-                        String emailFromServer = user.optString("email", "");
-                        int employeeid = user.optInt("id", -1);
-                        int employerid = user.optInt("id", -1);
-                        boolean isApproved = true; 
 
-                        // Here we are getting the employee id after logging in
-                        getSharedPreferences("role", MODE_PRIVATE).edit().putInt("employee_id", employeeid);
+                        boolean isApproved = true;
 
-                        // Here we are getting the employer id after logging in
-                        getSharedPreferences("role", MODE_PRIVATE).edit().putInt("employer_id", employeeid);
 
                         if (!isApproved) {
                             Toast.makeText(this, "Approval is needed before you can log in.", Toast.LENGTH_SHORT).show();
                             return;
                         }
+                        getSharedPreferences("CarboPrefs", MODE_PRIVATE).edit()
+                                .putInt("user_id", user.optInt("id"))
+                                .putString("first_name", user.optString("first_name"))
+                                .putString("last_name", user.optString("last_name"))
+                                .putString("email", user.optString("email"))
+                                .putString("role", user.optString("role"))
+                                .apply();
 
                         if (role.equalsIgnoreCase("employee")) {
                             startActivity(new Intent(LoginActivity.this, Employeedaily_Activity.class));
@@ -162,43 +157,6 @@ public class LoginActivity extends AppCompatActivity {
         }).start();
     }
 
-    private void openForgotPasswordModal() {
-        View modalView = LayoutInflater.from(this).inflate(R.layout.forget_password, null);
-
-        EditText currentPass = modalView.findViewById(R.id.currentPassword); 
-        EditText newPass = modalView.findViewById(R.id.newPassword);
-        EditText repeatPass = modalView.findViewById(R.id.repeatPassword);
-        ImageView toggleEye1 = modalView.findViewById(R.id.toggleEye1); 
-        ImageView toggleEye2 = modalView.findViewById(R.id.toggleEye2);
-        ImageView toggleEye3 = modalView.findViewById(R.id.toggleEye3);
-        ImageView backArrow = modalView.findViewById(R.id.backArrow);
-
-        currentPass.setVisibility(View.GONE);
-        toggleEye1.setVisibility(View.GONE);
-
-        TextView modalTitle = modalView.findViewById(R.id.modalTitle);
-        modalTitle.setText("Reset Your Password");
-
-        AlertDialog dialog = new AlertDialog.Builder(this)
-                .setView(modalView)
-                .setCancelable(true)
-                .create();
-
-        backArrow.setOnClickListener(view -> dialog.dismiss());
-
-        setPasswordToggle(toggleEye2, newPass);
-        setPasswordToggle(toggleEye3, repeatPass);
-
-        Button saveBtn = modalView.findViewById(R.id.savePasswordBtn);
-        saveBtn.setOnClickListener(v -> {
-            if (validateForgotPassword(newPass, repeatPass)) {
-                Toast.makeText(this, "Password reset successfully!", Toast.LENGTH_SHORT).show();
-                dialog.dismiss();
-            }
-        });
-
-        dialog.show();
-    }
 
     private void setPasswordToggle(ImageView toggleIcon, EditText passwordField) {
         toggleIcon.setOnClickListener(view -> {
@@ -213,20 +171,4 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private boolean validateForgotPassword(EditText newP, EditText repeat) {
-        String np = newP.getText().toString();
-        String rp = repeat.getText().toString();
-
-        if (np.isEmpty() || rp.isEmpty()) {
-            Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
-        if (!np.equals(rp)) {
-            Toast.makeText(this, "Passwords do not match.", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
-        return true;
-    }
 }
