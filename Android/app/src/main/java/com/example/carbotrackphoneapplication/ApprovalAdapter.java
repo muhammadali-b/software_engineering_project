@@ -1,3 +1,4 @@
+// This java code is used for the approval or denial of an employee after registration.
 package com.example.carbotrackphoneapplication;
 
 import android.view.LayoutInflater;
