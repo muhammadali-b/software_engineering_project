@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#F8FAF9">
 
-    <!-- Header -->
     <LinearLayout
         android:id="@+id/header_background"
         android:layout_width="0dp"
@@ -36,7 +35,6 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Payment Activity Label -->
     <TextView
         android:id="@+id/paymentActivityLabel"
         android:layout_width="wrap_content"
@@ -49,7 +47,6 @@
         app:layout_constraintTop_toBottomOf="@id/header_background"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Transaction History List -->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"

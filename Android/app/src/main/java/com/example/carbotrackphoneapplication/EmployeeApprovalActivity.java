@@ -1,3 +1,4 @@
+// This is the java code for the employee approvals page.
 package com.example.carbotrackphoneapplication;
 
 import android.os.Bundle;

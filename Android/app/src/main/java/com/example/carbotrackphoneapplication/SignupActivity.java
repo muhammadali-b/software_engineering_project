@@ -1,6 +1,5 @@
-package com.example.carbotrackphoneapplication;
-
 // Here is the Java code for the signup page.
+package com.example.carbotrackphoneapplication;
 
 import android.content.Intent;
 import android.os.Bundle;

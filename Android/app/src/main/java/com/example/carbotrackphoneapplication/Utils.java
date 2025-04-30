@@ -1,3 +1,5 @@
+// Here is the java code that is responsible for setting up the open route service api used for the OSMdroid map used on the employee travel page.
+// This code is also responsible for the distance and carbon credit calculations used for the employee travel page.
 package com.example.carbotrackphoneapplication;
 
 import android.content.Context;

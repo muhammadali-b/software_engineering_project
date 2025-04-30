@@ -1,3 +1,4 @@
+// Here is the java code for the travel completed page.
 package com.example.carbotrackphoneapplication;
 
 import android.content.Intent;

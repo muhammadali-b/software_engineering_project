@@ -1,5 +1,5 @@
+// Here is the Java code for the travel summary page.
 package com.example.carbotrackphoneapplication;
-// Java code for the travel summary page
 
 import android.content.Intent;
 import android.os.Bundle;

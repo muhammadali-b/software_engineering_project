@@ -1,3 +1,4 @@
+// This is the java code written to display the transaction history of the employer.
 package com.example.carbotrackphoneapplication;
 
 import android.os.Bundle;

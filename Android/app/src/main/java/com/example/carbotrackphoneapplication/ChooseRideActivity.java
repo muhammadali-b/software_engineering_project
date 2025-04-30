@@ -1,6 +1,6 @@
+//Here is the Java code for the choose ride page.
 package com.example.carbotrackphoneapplication;
 
-//Here is the Java code for the choose ride page.
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;

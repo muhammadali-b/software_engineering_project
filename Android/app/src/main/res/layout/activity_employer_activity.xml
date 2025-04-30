@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#F8FAF9">
 
-    <!-- Header background -->
     <View
         android:id="@+id/header_background"
         android:layout_width="0dp"
@@ -16,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- App name -->
+
     <TextView
         android:id="@+id/carboTrackText"
         android:layout_width="wrap_content"
@@ -30,7 +29,6 @@
         app:layout_constraintBottom_toBottomOf="@id/header_background"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Card Options -->
     <androidx.cardview.widget.CardView
         android:id="@+id/optionsLayout"
         android:layout_width="0dp"
@@ -49,7 +47,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Employee Approval -->
             <LinearLayout
                 android:id="@+id/employeeapprovalBtn"
                 android:layout_width="match_parent"
@@ -85,7 +82,6 @@
                 android:layout_height="1dp"
                 android:background="#EEEEEE" />
 
-            <!-- Payment -->
             <LinearLayout
                 android:id="@+id/paymentBtn"
                 android:layout_width="match_parent"
@@ -121,7 +117,6 @@
                 android:layout_height="1dp"
                 android:background="#EEEEEE" />
 
-            <!-- Trading -->
             <LinearLayout
                 android:id="@+id/tradingBtn"
                 android:layout_width="match_parent"
@@ -154,7 +149,7 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Bottom Nav -->
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="0dp"
